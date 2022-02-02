@@ -40,7 +40,7 @@ def allcome_decrypt(str):
 	return ''.join([chr(ord(c)-2) for c in str])
 
 if __name__ == "__main__":
-	parser = argparse.ArgumentParser(description='AllComeClipper Config Extractor')
+	parser = argparse.ArgumentParser(description='AllCome Clipper Config Extractor')
 	parser.add_argument('-f', '--file', help='file', action='store_true')
 	parser.add_argument('file', help='file to decode')
 	args = parser.parse_args()
@@ -48,7 +48,6 @@ if __name__ == "__main__":
 		with open(args.file,"rb") as f:
 			data = f.read()
 			str_list = extract_strings(data)
-			print(str_list)
 			for ctr, str in enumerate(str_list):
 				if len(str) > 0:
 					print(ctr, allcome_decrypt(str))
