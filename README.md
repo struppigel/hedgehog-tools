@@ -1,4 +1,4 @@
-﻿﻿# hedgehog-tools
+# hedgehog-tools
  
 Repo of smaller scripts for malware analysis
 
