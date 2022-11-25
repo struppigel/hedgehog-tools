@@ -2,6 +2,7 @@ import idautils
 
 # Author: Karsten Hahn @ GDATA CyberDefense
 # Twitter: @struppigel
+# Mastodon: struppigel@infosec.exchange
 # IDAPython Script to decode NightHawk strings
 # sha256: 9a57919cc5c194e28acd62719487c563a8f0ef1205b65adbe535386e34e418b8
 # sha256: 0551ca07f05c2a8278229c1dc651a2b1273a39914857231b075733753cb2b988
