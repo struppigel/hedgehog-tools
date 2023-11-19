@@ -26,7 +26,7 @@ Sample: https://bazaar.abuse.ch/sample/f234b6d1801e1d4105de18a74ecd99f64cbdd7c47
 
 ## NightHawk String Decoder
 
-IDAPython script that adds comments with decoded string contents into the idb
+IDAPython script that adds comments with decoded string contents into the idb. Needs polishing as it misses some strings.
 
 Tested on samples:
 
