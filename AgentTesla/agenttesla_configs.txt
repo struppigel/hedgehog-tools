@@ -1,0 +1,1692 @@
+------------------------------------------
+
+extracted from 01bc58720518f223c853b9b05a599c5d5f39a856502324f6eea8efa6ffef4cb2
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: true
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mail.svshygiene.com.my
+SmtpSender: john(at)svshygiene.com.my
+SmtpPassword: 1122Jon889900
+SmtpReceiver: rbox0425(at)gmail.com
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: mKayFl
+StartupInstallationName: mKayFl.exe
+StartupRegName: mKayFl
+
+------------------------------------------
+
+extracted from 0230ac7a07f2da3ffeb93153bd6c5859891411cf73f6f91a948208cc2003bf50
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: true
+EnableScreenLogger: true
+EnableClipboardLogger: true
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 4
+DiscordWebhook: hxxps://discord.com/api/webhooks/1165354050208927915/H0h6bZnJR33t_PDIY9B644sCmXndnGRDVIEl4TwPtytc_O9JwvYhZd7OKqgVbr1rwxyV
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: NyMTjO
+StartupInstallationName: NyMTjO.exe
+StartupRegName: NyMTjO
+
+------------------------------------------
+
+extracted from 11c7da42d968a49edc5a249bb485aeebd56af1a8f051cea0fe855d9b21ee0b9c
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 4
+DiscordWebhook: hxxps://discord.com/api/webhooks/1165887917957328896/FFx_9h5uoZJoKBBaNHGZv-z8-5yfMv8wqE6it6fminSPJmfSVlzgit6ZDnbumG-hXN7T
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: YEGckP
+StartupInstallationName: YEGckP.exe
+StartupRegName: YEGckP
+
+------------------------------------------
+
+extracted from 1e175e86acdc9f713d1a0dded4aa914b57636e59699e6fa0d877ed0af4c8e971
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 35
+ScreenInterval: 30
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: server1.sqsendy.shop
+SmtpSender: sendcore(at)longyarh.shop
+SmtpPassword: D(_(at)m?0F4eqd
+SmtpReceiver: core(at)longyarh.shop
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: er5iidI0
+StartupInstallationName: er5iidI0.exe
+StartupRegName: er5iidI0
+
+------------------------------------------
+
+extracted from 1f4dd5de98b6f2504d93a050bf7504917356f4e545d2a6285266c7cd92c27cd5
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mail.nutrigefar.com
+SmtpSender: cjcurrentxx(at)nutrigefar.com
+SmtpPassword: r1(at)l&v&2am7l
+SmtpReceiver: cjcurrentxx(at)nutrigefar.com
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: temp
+StartupDirectoryName: cdrom
+StartupInstallationName: cdrom.exe
+StartupRegName: cdrom
+
+------------------------------------------
+
+extracted from 2a2607260abf7f5bf4dd121b4dc758e7106668bb974c9f5977bf665d46063b1f
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: false
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mail.oleoquimica.com.br
+SmtpSender: suporte(at)oleoquimica.com.br
+SmtpPassword: $2930$Sup
+SmtpReceiver: rickssales(at)yandex.ru
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: temp
+StartupDirectoryName: nRCvN
+StartupInstallationName: nRCvN.exe
+StartupRegName: nRCvN
+
+------------------------------------------
+
+extracted from 2bb0961621e6eca5c6433eea0cd7c8515ef20d76713eac10b6c17c426bfb2752
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mail.quartieri97italy.com.ng
+SmtpSender: philipmezierecei(at)quartieri97italy.com.ng
+SmtpPassword: philipmezierecei56.;9
+SmtpReceiver: dgsexamsa(at)gmail.com
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: EZfcqfv
+StartupInstallationName: EZfcqfv.exe
+StartupRegName: EZfcqfv
+
+------------------------------------------
+
+extracted from 397cd87c0b7b163760f500a6f39370fb73595fee775800a7a8e9954781f3c9da
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 4
+DiscordWebhook: hxxps://discord.com/api/webhooks/1163580376363565067/I7HBK5bQvc7cR0s88thy2h7D3CvgBAqeZYXLYNl68Cb_pBIrmfwju6z-F5jCIyf83K0B
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: YEGckP
+StartupInstallationName: YEGckP.exe
+StartupRegName: YEGckP
+
+------------------------------------------
+
+extracted from 401c09f92cba2f62a3c0e86bd87b2b0aea5e97c2f8a738030c26a5456e63da26
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: true
+EnableScreenLogger: false
+EnableClipboardLogger: true
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mail.sitraco.org.ng
+SmtpSender: chiso(at)sitraco.org.ng
+SmtpPassword: chiso100%800mili
+SmtpReceiver: chisomagareceive(at)sitraco.org.ng
+AppAddStartup: true
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: aATUsVt
+StartupInstallationName: aATUsVt.exe
+StartupRegName: aATUsVt
+MeltFile: true
+
+------------------------------------------
+
+extracted from 4c194c79054fb9edecde91de111bf2dc0c2c5b5ab419f5df442a241a91ca5295
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: true
+EnableScreenLogger: false
+EnableClipboardLogger: true
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mail.officeemailbackup.com
+SmtpSender: info1(at)officeemailbackup.com
+SmtpPassword: 9e1Zc]V(iNXQ
+SmtpReceiver: info(at)officeemailbackup.com
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: ebpFGT
+StartupInstallationName: ebpFGT.exe
+StartupRegName: ebpFGT
+
+------------------------------------------
+
+extracted from 52e94aa5076b80a6fd09ee86905ff7d932a6c2e9de9130ef0fa97789ae2f4cb7
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 5
+ScreenInterval: 5
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mail.tecnosilos.com.py
+SmtpSender: chuki(at)tecnosilos.com.py
+SmtpPassword: w%$?KBU*]N^P
+SmtpReceiver: chucksss(at)refrigeretionvalve.com
+AppAddStartup: false
+HideFileStartup: true
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: firefox
+StartupInstallationName: firefox.exe
+StartupRegName: firefox
+
+------------------------------------------
+
+extracted from 53547316e58c2c05126c17dd8dc44187f58d718471c69d2af56756b4bf4f0567
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: true
+EnableScreenLogger: false
+EnableClipboardLogger: true
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mail.scorpionlogistics.qa
+SmtpSender: ashok(at)scorpionlogistics.qa
+SmtpPassword: M30009637
+SmtpReceiver: uched0958(at)gmail.com
+AppAddStartup: true
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: YXMWabc
+StartupInstallationName: YXMWabc.exe
+StartupRegName: YXMWabc
+HostEdit: true
+
+------------------------------------------
+
+extracted from 5a434a4d1ccc5536bde2dccfd7b0f794a71ce61ad07ac5e6515997c5677a8f53
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: irradia.com.bo
+SmtpSender: mflores(at)irradia.com.bo
+SmtpPassword: 8cMocb_&4trjd-5
+SmtpReceiver: bienvenidos(at)irradia.com.bo
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: system file
+StartupInstallationName: system file.exe
+StartupRegName: system file
+
+------------------------------------------
+
+extracted from 5c1a46efd728198d06ee6ee726b3ccb4cd92928aa73d7ad4729c6161afe0450f
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: true
+EnableScreenLogger: true
+EnableClipboardLogger: true
+EnableTorPanel: false
+EnableCookies: true
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: true
+SmtpServer: mail.saharaexpress.com
+SmtpSender: prabha(at)saharaexpress.com
+SmtpPassword: Sahara*542
+SmtpReceiver: shams(at)ipcsaudia.com
+AppAddStartup: true
+HideFileStartup: true
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: abobex
+StartupInstallationName: abobex.exe
+StartupRegName: abobex
+
+------------------------------------------
+
+extracted from 6046e039b4d25a0f4cce1226cb0adef95555a633d7cc44d54a316106b793195f
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 4
+DiscordWebhook: hxxps://discordapp.com/api/webhooks/1164730628550438952/_O-QbcjIEdRcm5EAVCJ-_hmg7mxYWc7ZYcOo8cDFuFbpc_sXABV9Xpe0cm7HWHpJu5rO
+AppAddStartup: false
+HideFileStartup: true
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: SJtsAwX
+StartupInstallationName: SJtsAwX.exe
+StartupRegName: SJtsAwX
+HostEdit: true
+
+------------------------------------------
+
+extracted from 6a4b7f47a55a5ae28bf0eabddeb66496c9ef50ae2ee8512809ca825148f308c3
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: true
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 4
+DiscordWebhook: hxxps://discord.com/api/webhooks/1164504301004136538/mthHKOfB1I63beYFyOHDyCKi6hs6K4mGMegPv58UaFknoPRxy3jDDVnOGEbWz3LMUpMm
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: qQNsKhd
+StartupInstallationName: qQNsKhd.exe
+StartupRegName: qQNsKhd
+
+------------------------------------------
+
+extracted from 724b387b8762c245969c80ade0c3984d3ba47f5ca060308e12034f770195c45c
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: false
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mail.cpbgdigital.com
+SmtpSender: iinfo(at)cpbgdigital.com
+SmtpPassword: (at)^fkCujt4bYL
+SmtpReceiver: nowme10(at)gmx.fr
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: jbleh
+StartupInstallationName: jbleh.exe
+StartupRegName: jbleh
+
+------------------------------------------
+
+extracted from 751ab26b325c15c4b8762f1367fb073fee3baefea7b69bdfc73adbb3204ebb93
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mail.quartieri97italy.com.ng
+SmtpSender: philipmezierecei(at)quartieri97italy.com.ng
+SmtpPassword: philipmezierecei56.;9
+SmtpReceiver: dgsexamsa(at)gmail.com
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: EZfcqfv
+StartupInstallationName: EZfcqfv.exe
+StartupRegName: EZfcqfv
+
+------------------------------------------
+
+extracted from 7bae7f22bb2951e0c3a71fbffda6af21daef4f2bab1040a33498c598abcd5fef
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: true
+EnableScreenLogger: true
+EnableClipboardLogger: true
+EnableTorPanel: false
+EnableCookies: true
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 3
+TelegramApi: hxxps://api.telegram.org/bot6413426905:AAHR9s_zKOMZ8VqS2ZoMm3UZaHZoNPS_D_Y/
+ChatId: 5241540613
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: 2yA11
+StartupInstallationName: 2yA11.exe
+StartupRegName: 2yA11
+
+------------------------------------------
+
+extracted from 834345744e624a6f73b6bc7aea4c197f8f6431268083bfe1029bb8b08ce402fb
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 2
+ScreenInterval: 2
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: smtp.zoho.com
+SmtpSender: ifeanyi.ifeanyi_2023(at)zohomail.com
+SmtpPassword: i  f  e  a  n  y  i  2  2  $
+SmtpReceiver: ifeanyi.ifeanyi_2023(at)zohomail.com
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: ZWapnQ
+StartupInstallationName: ZWapnQ.exe
+StartupRegName: ZWapnQ
+HostEdit: true
+
+------------------------------------------
+
+extracted from 9259f439e56110ffabdddc1958c01f85e870d386fafdb5407bc52d2e8321624b
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: true
+EnableScreenLogger: false
+EnableClipboardLogger: true
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 30
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: smtp.yandex.com
+SmtpSender: omananilampard1(at)yandex.com
+SmtpPassword: devxkjftkwurflbq
+SmtpReceiver: omananilampard1(at)yandex.com
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: cGwIUTI
+StartupInstallationName: cGwIUTI.exe
+StartupRegName: cGwIUTI
+
+------------------------------------------
+
+extracted from 965711a95d012e109ec8f1e7ee5bcefdce122b02a9e2589348a796bc9229fc3c
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mail.hltllc.com
+SmtpSender: george(at)hltllc.com
+SmtpPassword: Hlt(at)36(at)Gr#8
+SmtpReceiver: sales(at)udupis.com
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: DgUECH
+StartupInstallationName: DgUECH.exe
+StartupRegName: DgUECH
+
+------------------------------------------
+
+extracted from 9e89e0d2f167b9efde2b4136bf2a6aec8b6887fc52082e3ef294675a2d2e5d84
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: true
+EnableScreenLogger: false
+EnableClipboardLogger: true
+EnableTorPanel: false
+EnableCookies: true
+DeleteBackspace: true
+TorPid: true
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mymobileorder.com
+SmtpSender: result(at)mymobileorder.com
+SmtpPassword:   Grace(at)20233          
+SmtpReceiver: result(at)mymobileorder.com
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: RjIIUUx
+StartupInstallationName: RjIIUUx.exe
+StartupRegName: RjIIUUx
+EnableSmartLogger: true
+smartLoggerType: 1
+smartWords: discord
+
+------------------------------------------
+
+extracted from 9ed555c344789d67c554ca9f0d159113a587f9986e30f981942707d6fe46ffef
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: true
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 3
+TelegramApi: hxxps://api.telegram.org/bot6950818166:AAGEBpo3MFF3lkfI4C4iazv-HBoQWXpFREE/
+ChatId: 6265187542
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: svchost
+StartupInstallationName: svchost.exe
+StartupRegName: svchost
+
+------------------------------------------
+
+extracted from aa8ac27416f0900c89dfc509818a4e138a58f6f5d84527b659556df3b8fd1d9d
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: true
+EnableScreenLogger: true
+EnableClipboardLogger: true
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 4
+DiscordWebhook: hxxps://discord.com/api/webhooks/1163230963451576442/DEVbeoOX9iY0rBG3JbzLO5gr9-vpiBRnNKQVgqvzWFuJunFXH5V_trdwnn5yZF1OeIbH
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: zSdUM
+StartupInstallationName: zSdUM.exe
+StartupRegName: zSdUM
+EnableSmartLogger: true
+smartLoggerType: 1
+smartWords: bitpay
+
+------------------------------------------
+
+extracted from ab7c481214a6e01a6556a6a564157205abfcfafaafdafea9f4735e8461a26489
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: true
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mail.hindusthan.com
+SmtpSender: accountspune(at)hindusthan.com
+SmtpPassword: a1c2c3
+SmtpReceiver: zamanic62(at)gmail.com
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: YqgRzFn
+StartupInstallationName: YqgRzFn.exe
+StartupRegName: YqgRzFn
+
+------------------------------------------
+
+extracted from ae3ae82e838d024375936694983a22656965f4f4c6f9056186a33b04bd4b2c59
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: us2.smtp.mailhostbox.com
+SmtpSender: yinloong.wong(at)nuoryons.com
+SmtpPassword: nnedimma080
+SmtpReceiver: yinloong.wong(at)nuoryons.com
+AppAddStartup: true
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: MmRKwR
+StartupInstallationName: MmRKwR.exe
+StartupRegName: MmRKwR
+
+------------------------------------------
+
+extracted from b156e1501ffe642a2aa7b613034a0bd45f61b9ea369be50fab11af17bc4ff0f9
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: true
+EnableScreenLogger: true
+EnableClipboardLogger: true
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: nl10.nlkoddos.com
+SmtpSender: 99(at)immobilien-istrenhen.com
+SmtpPassword: =MF(at)B-y8]-FV
+SmtpReceiver: 99k(at)immobilien-istrenhen.com
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: mWJUf
+StartupInstallationName: mWJUf.exe
+StartupRegName: mWJUf
+
+------------------------------------------
+
+extracted from b2f1fc0bcc710a9e1c4ba1f02ab17c383b3bf4125930c65d88bb148188da3636
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: us2.smtp.mailhostbox.com
+SmtpSender: log3(at)forrwel.net
+SmtpPassword: cash(at)com12345cash(at)com12345
+SmtpReceiver: log3(at)forrwel.net
+AppAddStartup: false
+HideFileStartup: true
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: Micosoft Excel 2020
+StartupInstallationName: Micosoft Excel 2020.exe
+StartupRegName: Micosoft Excel 2020
+
+------------------------------------------
+
+extracted from b3dfc07d5bc2408921c8f04ea90ef5d3b44bef78ac4ea905e338acd98f7df8de
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: true
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 3
+TelegramApi: hxxps://api.telegram.org/bot6610764322:AAF5bGm2U5ozUDOcoNEjsvK_0eX8f49Puzo/
+ChatId: 5957498158
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: HJCXKwE
+StartupInstallationName: HJCXKwE.exe
+StartupRegName: HJCXKwE
+
+------------------------------------------
+
+extracted from b5380b9c1b62b9da06af279c0c988e26d70c98c1e39ac7db67761954aab0bbe5
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mail.commtechtrading.com
+SmtpSender: ejaz.ahmad(at)commtechtrading.com
+SmtpPassword:           yc]Wx#x?{&sL          
+SmtpReceiver: ejaz.ahmad(at)commtechtrading.com
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: yhpyv
+StartupInstallationName: yhpyv.exe
+StartupRegName: yhpyv
+HostEdit: true
+
+------------------------------------------
+
+extracted from bb9c67f2364dc59759900a28b543dae552475eaa6dfada1cd6cd230c3e44bba2
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: true
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 3
+TelegramApi: hxxps://api.telegram.org/bot6844391207:AAEoYEcquhCHcS6v4KgTHwbMtmke4qhItRo/
+ChatId: 5302361040
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: svchost
+StartupInstallationName: svchost.exe
+StartupRegName: svchost
+
+------------------------------------------
+
+extracted from c08e7d2a91188673dce13cf4df7403649e277c13296d7466a50aa8b645a3b202
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 59
+ScreenInterval: 58
+LogType: 3
+TelegramApi: hxxps://api.telegram.org/bot6871248669:AAHeH0Pt2_xQzqpk-Y-yYzlE0-6gMnOq9LY/
+ChatId: 6265187542
+AppAddStartup: false
+HideFileStartup: true
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: svchost.exe
+StartupInstallationName: svchost.exe.exe
+StartupRegName: svchost.exe
+
+------------------------------------------
+
+extracted from c26d0aa82ae008949c52f562a299ece31e83c66bfbfd67edb0359cedad05cf02
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: true
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 2
+FtpHost: ftp://ftp.aksumer.com
+FtpUser: zadmin(at)aksumer.com
+FtpPassword: Kingdom12345(at)
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: aLdOrw
+StartupInstallationName: aLdOrw.exe
+StartupRegName: aLdOrw
+
+------------------------------------------
+
+extracted from c53b7c03d7b9e50bcad92d82ab6e867b323fd8b5d4a929471186a38f8cfd7a97
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 4
+DiscordWebhook: hxxps://discordapp.com/api/webhooks/1160567077896200192/inMt2yf5sINCUMDwZbHHI3V0VGihHisZ9WQs_u0zw4rXCQqwkO7BaEXRduSrHSv6m4hC
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: SJtsAwX
+StartupInstallationName: SJtsAwX.exe
+StartupRegName: SJtsAwX
+HostEdit: true
+MeltFile: true
+
+------------------------------------------
+
+extracted from d1669f781c62b70d49b1864ba3d98e67c9082cfb50b7865925b596a4465bbc32
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: true
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 3
+TelegramApi: hxxps://api.telegram.org/bot6521350036:AAF8zqjGXosIepevfWbMGHPi1J4X2bCZ94g/
+ChatId: 5302361040
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: svchost
+StartupInstallationName: svchost.exe
+StartupRegName: svchost
+
+------------------------------------------
+
+extracted from d37f1354d25c117e0ce99302fe63aeee4f2de8ff877ebd61c658694653cf4c90
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: false
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: us2.smtp.mailhostbox.com
+SmtpSender: wf.galvinchai(at)drnu-cn.com
+SmtpPassword: GYYpXIE3
+SmtpReceiver: wf.galvinchai(at)drnu-cn.com
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: yCfxxa
+StartupInstallationName: yCfxxa.exe
+StartupRegName: yCfxxa
+
+------------------------------------------
+
+extracted from d85fa886dd4a1d381f866093bd6f1b8d8feafa371aad11657a46ac675fa5629f
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mail.tribosgroup.com
+SmtpSender: momo(at)tribosgroup.com
+SmtpPassword: Db4-oX=9SnWdBuWO
+SmtpReceiver: momologs(at)tribosgroup.com
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: FuyPvu
+StartupInstallationName: FuyPvu.exe
+StartupRegName: FuyPvu
+
+------------------------------------------
+
+extracted from da6d8b4c713ec082734ea515b11558c61b37f7a85f1886dd2dd3eaf7d9c27421
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: euenarji.com
+SmtpSender: logs(at)euenarji.com
+SmtpPassword: cooldown2013
+SmtpReceiver: churchill(at)brillliantgroupusa.com
+AppAddStartup: true
+HideFileStartup: true
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: SzvWIzD
+StartupInstallationName: SzvWIzD.exe
+StartupRegName: SzvWIzD
+
+------------------------------------------
+
+extracted from e185f4b15fcbbbf8ad0f2d2613d2e2cdd7dce6b1da934063e0082e72103d212d
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: true
+EnableScreenLogger: false
+EnableClipboardLogger: true
+EnableTorPanel: false
+EnableCookies: true
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mymobileorder.com
+SmtpSender: money(at)mymobileorder.com
+SmtpPassword:    Grace(at)2023(at)121          
+SmtpReceiver: money(at)mymobileorder.com
+AppAddStartup: true
+HideFileStartup: true
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: YseEYgM
+StartupInstallationName: YseEYgM.exe
+StartupRegName: YseEYgM
+MeltFile: true
+EnableSmartLogger: true
+smartLoggerType: 1
+smartWords: discord
+
+------------------------------------------
+
+extracted from e2971b2711d30784bf574e262cef27571c622b396d8747c62465c8156af39b57
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: false
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mail.amtechprinting.com
+SmtpSender: india(at)amtechprinting.com
+SmtpPassword: ky6},[#OEce(
+SmtpReceiver: india1(at)amtechprinting.com
+AppAddStartup: true
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: McscxVE
+StartupInstallationName: McscxVE.exe
+StartupRegName: McscxVE
+
+------------------------------------------
+
+extracted from ecf63bc57d9d081e0ecaa0dd617e4745478aea2f0b26ed1d06c9ca0635b7ae6e
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 5
+ScreenInterval: 5
+LogType: 1
+SmtpSSL: true
+SmtpPort: 26
+SmtpAttach: false
+SmtpServer: mail.tecnosilos.com.py
+SmtpSender: chuki(at)tecnosilos.com.py
+SmtpPassword: w%$?KBU*]N^P
+SmtpReceiver: goldcncc(at)gmail.com
+AppAddStartup: false
+HideFileStartup: true
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: firefox
+StartupInstallationName: firefox.exe
+StartupRegName: firefox
+
+------------------------------------------
+
+extracted from f03427705f8aeb1b5f9ef7f9f5382a6c666bc20cb811304421e1a3242a2f4ae3
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 3
+TelegramApi: hxxps://api.telegram.org/bot6274305207:AAH5YPuidA8Ry1ixmINxRICUhFKpXUvENJg/
+ChatId: 5895512224
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: mPPSr
+StartupInstallationName: mPPSr.exe
+StartupRegName: mPPSr
+
+------------------------------------------
+
+extracted from f6aeac19ed38e3938ce054720d7cddb6e2172069c19d8564cf75bc28b1b113af
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: true
+IpApi: hxxps://api.ipify.org
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: true
+EnableScreenLogger: false
+EnableClipboardLogger: true
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 20
+ScreenInterval: 20
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mail.officeemailbackup.com
+SmtpSender: p1(at)officeemailbackup.com
+SmtpPassword: ]2(-jARQ1V-^
+SmtpReceiver: p2(at)officeemailbackup.com
+AppAddStartup: false
+HideFileStartup: false
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: ebpFGT
+StartupInstallationName: ebpFGT.exe
+StartupRegName: ebpFGT
+
+------------------------------------------
+
+extracted from feb1b6dbc9187c73d604a13a79223622bfe6f27626f3ebc061f95322c3abf402
+
+PcHwid: <empty>
+ThisComputerName: <empty>
+AsmFilePath: <empty>
+PublicIpAddress: <empty>
+PublicIpAddressGrab: false
+IpApi: <empty>
+PublicUserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+PcState: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+Log_text: <empty>
+EnableKeylogger: false
+EnableScreenLogger: false
+EnableClipboardLogger: false
+EnableTorPanel: false
+EnableCookies: false
+DeleteBackspace: false
+TorPid: false
+KeyloggerInterval: 2
+ScreenInterval: 2
+LogType: 1
+SmtpSSL: true
+SmtpPort: 587
+SmtpAttach: false
+SmtpServer: mail.zelectricidad.com.ar
+SmtpSender: gerencia(at)zelectricidad.com.ar
+SmtpPassword: yj{%6d8cJV&C
+SmtpReceiver: straitjohn249(at)gmail.com
+AppAddStartup: false
+HideFileStartup: true
+AppStartupFullPath: <empty>
+StartupDirectoryPath: <empty>
+StartupEnvName: appdata
+StartupDirectoryName: Notepad
+StartupInstallationName: Notepad.exe
+StartupRegName: Notepad
+HostEdit: true
+
