@@ -6,7 +6,7 @@ Repo of smaller scripts for malware analysis
 
 Usage:
 
-> python AgentTesla_config_extractor.py \<folder_with_samples\>
+`python AgentTesla_config_extractor.py <folder_with_samples>`
 
 Configs will be placed or appended to a file named agenttesla_configs.txt
 
@@ -18,7 +18,7 @@ Works on non-packed samples, so use unpacme or similar before applying the extra
 
 Usage:
 
-> python allcome_extractor.py \<sample\>
+`python allcome_extractor.py <sample>`
   
 Reference: https://twitter.com/3xp0rtblog/status/1486368999919300611
   
