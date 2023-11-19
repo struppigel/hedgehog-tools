@@ -5,7 +5,7 @@ import subprocess
 import clr
 import traceback
 from hashlib import sha256
-clr.AddReference(r"C:\Users\richa\Desktop\dnlib.dll")
+clr.AddReference(r"dnlib.dll")
 
 import dnlib
 from dnlib.DotNet import *
