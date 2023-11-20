@@ -2,6 +2,10 @@ import argparse
 import pefile
 import struct
 
+# Author: Karsten Hahn @ GDATA CyberDefense
+# Twitter: @struppigel
+# Extract config of Allcome clipbanker
+
 def extract_resource(raw_data):
 	pe = pefile.PE(data=raw_data)
 	data_list = []
