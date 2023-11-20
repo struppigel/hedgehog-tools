@@ -1,3 +1,7 @@
+# Author: Karsten Hahn @ GDATA CyberDefense
+# Twitter: @struppigel
+# Extract config of AgentTesla, OriginLogger variant
+
 import os
 import shutil
 import sys
