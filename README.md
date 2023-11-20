@@ -1,6 +1,6 @@
 # hedgehog-tools
  
-Repo of smaller scripts for malware analysis
+Repo of smaller scripts for malware analysis, deobfuscation and configuration extraction
 
 ## AgentTesla Config Extractor
 
