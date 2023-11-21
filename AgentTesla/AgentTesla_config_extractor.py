@@ -52,20 +52,17 @@ def write_config_to_file(config, out_file):
         f.write("------------------------------------------\n\n" + defang(config) + "\n")
 
 def main(folder):
-    print(folder)
     if folder.endswith('\\'): 
         folder = folder[:-1]
 
     configs = []
     for directory, subdirs, files in os.walk(folder):
         for pfile in files:
-            print(pfile)
             config = extract_config(os.path.join(directory, pfile))
             if len(config.strip()) > 0: 
                 configs.append(config)
                 write_config_to_file(config, 'agenttesla_configs.txt')
 
-    #shutil.rmtree(temp_dumps)
     for config in configs:
         print()
         print('-------------------------------------')
