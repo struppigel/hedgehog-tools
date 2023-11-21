@@ -4,7 +4,17 @@ Repo of smaller scripts for malware analysis, deobfuscation and configuration ex
 
 ## AgentTesla Config Extractor
 
-Usage:
+### Requirements
+
+The script uses dnlib. This line of the script must point to the dnlib binary on your system:
+
+`clr.AddReference(r"dnlib.dll")`
+
+You need a .NET Runtime on your system. Install it and run
+
+`pip install -r requirements.txt`
+
+### Usage
 
 `python AgentTesla_config_extractor.py <folder_with_samples>`
 
