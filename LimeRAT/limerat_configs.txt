@@ -1,0 +1,836 @@
+------------------------------------------
+
+extracted from 1792e5a38ebc24b2b604296b7d93141e4eeb3833eba012345f7c42e3b584eb15
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/Z5DEgtJW
+retrieved c2 ip: 20(.)151.239.107(:)80
+Pastebin: RdEjVvmrlg4U8KCA+Vojt9mN0GvALkwHvssvoaXFl+1RIEcVkOYO8Y8vyscBAW2n
+EncryptionKey: sparrow
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Sender-id.exe
+USB: True
+PIN: True
+ANTI: True
+DROP: True
+PATH1: %AppData%
+PATH2: \
+fullpath: %AppData%\Sender-id.exe
+BTC_ADDR: bc1qeryt09mrl4kljxd6804vypl99d5l6ls9nqzsvc
+DWN_CHK: True
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from 1f23d4e5baf47145a4614a1a3fcc2b57706eb66ea36d48e2215e020dbedc01c1
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/7EatsPYf
+retrieved c2 ip: 192(.)168.1.7(:)8080
+Pastebin: Tu0SMf7mpNr2MhWfuwm0xEeLN8+DsLflGcptPlTK0EVgDdy2eGy1TLsvf2dKwgIx
+EncryptionKey: nyan
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Wservices.exe
+USB: False
+PIN: False
+ANTI: False
+DROP: False
+PATH1: %Temp%
+PATH2: \
+fullpath: %Temp%\Wservices.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from 241612ebc1cb84fa0f2bd663718f35ca9e07f2ff2640ffe113afe3cecb9bd2bd
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/Mh8T0LJe
+retrieved c2 ip: 37(.)34.251.159(:)8181
+Pastebin: syVg9lhLDVQOBe5iUEXxpK6HeXrY2ExqXq7X6w2czspcz629bM3zHEukayoFU133
+EncryptionKey: 082808
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: limo.exe
+USB: True
+PIN: True
+ANTI: True
+DROP: True
+PATH1: %Temp%
+PATH2: \Windows\
+fullpath: %Temp%\Windows\limo.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: hxxps://mdl.arabou.edu.kw/ksa/user/profile/field/text/lang/en/VB64.exe
+Delay: 6
+------------------------------------------
+
+extracted from 269dc2b37169735ee126b0f15a4948a642d6c4b5b45ccda620e206cc72c6047d
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/aEid41SM
+retrieved c2 ip: 147(.)185.221.16(:)52214
+Pastebin: WYP2P8stBO3U23Gp/34Q6KQsDQHR3eICWtSwycObRghw31Tc4n2sg6mVBX4aEcZE
+EncryptionKey: 65AF55741941
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Wservices.exe
+USB: True
+PIN: True
+ANTI: False
+DROP: True
+PATH1: %AppData%
+PATH2: \pencil\
+fullpath: %AppData%\pencil\Wservices.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from 2762237a807aca0305d48f35e4ccfa3985895bcaad58755347063d3552854827
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/emDNYZ7E
+retrieved c2 ip: hotrongnghia(.)ddns.net(:)8080
+Pastebin: har/pEQb8mWcvyBaaQ8Nv9Hk2yg2U95SEHHaItZ2dLW4XGlyD8F2ZP26XfejwL1R
+EncryptionKey: Nghia
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Demo .exe
+USB: True
+PIN: False
+ANTI: False
+DROP: True
+PATH1: %AppData%
+PATH2: \
+fullpath: %AppData%\Demo .exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from 276982519df4861903da3b038fc128b05089248898f2031a528451f657717515
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/tBMeZJ9Z
+retrieved c2 ip: 127(.)0.0.1(:)4444
+Pastebin: 4S9sbuvc/9cBn3Ra86jetHQVR1DhYDKVDzWeMiiIEDPEfr83uXM9JAI18eiShVSf
+EncryptionKey: 1111
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: google.exe
+USB: False
+PIN: False
+ANTI: False
+DROP: True
+PATH1: %Temp%
+PATH2: \Systeme \
+fullpath: %Temp%\Systeme \google.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from 2d9c4bbbbeb3a9a51e0a2e14ce10722d4ae96da8b6d128e8d50d89a90b3f0292
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/7sALhsP2
+retrieved c2 ip: 193(.)161.193.99(:)27942
+Pastebin: e0/t43+eSC2P14Le0wpL28ZcCk/6TKiJdImbbzaWyol4zXR9MdZZBuIFss/1Fgad
+EncryptionKey: pundek
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Secure.exe
+USB: False
+PIN: False
+ANTI: False
+DROP: True
+PATH1: %Temp%
+PATH2: \
+fullpath: %Temp%\Secure.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from 2ece07a7b2a89c0771e00259058b2d1aea17577c6688f35890b391b0b1b1e129
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/Fabuju1w
+retrieved c2 ip: 127(.)0.0.1(:)8443
+Pastebin: nuImCkrBxGJOhqkHr/gyBHXtB2hmXYJ4SkmjT6L/HJPDFHfXg8UpiEMbVeym+nMS
+EncryptionKey: 54654654654654
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Wservices.exe
+USB: False
+PIN: False
+ANTI: False
+DROP: False
+PATH1: %Temp%
+PATH2: \
+fullpath: %Temp%\Wservices.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from 2f8abb4fe4edb4b866d2ac802f3efec1c6fd77df4bba0c6adfdec89fda6a7be5
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/2LUt8xW3
+retrieved c2 ip: 2(.)49.117.24(:)5167
+Pastebin: v/k2G/flUvGFE0YffacvAaO9FXBj5Jiwh8CwMvsx6RCuNX2Od4vy+KpGcTuQSZSk
+EncryptionKey: Sreehari
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: OneDrive.exe
+USB: True
+PIN: True
+ANTI: False
+DROP: True
+PATH1: %AppData%
+PATH2: \OneDrive\
+fullpath: %AppData%\OneDrive\OneDrive.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from 345ada0f5ec8abd40d8570f500f768ea16e1b19a82e8eaca8f2a568625da7891
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/5ku8s05u
+retrieved c2 ip: 127(.)0.0.1(:)7777
+Pastebin: I/iov2SPPOAlYKjBfyAaAy/htdS9Ru5P/hFgGisu6TZzjoMhSJcw8YF+RMAhkwHm
+EncryptionKey: A
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: google .exe
+USB: False
+PIN: False
+ANTI: False
+DROP: True
+PATH1: %Temp%
+PATH2: \Systeme \
+fullpath: %Temp%\Systeme \google .exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from 3b1db37cab593dfd0bb6b32a889ca7d6a8bc009ccc1eff0b3f90922400f7ad70
+
+decrypted pastebin retrieval URL: %Pastebin%
+retrieved c2 ip: <no pastebin link>
+Pastebin: %Pastebin%
+EncryptionKey: %PASS%
+ENDOF: %KEY%
+SPL: %SPL%
+EXE: %EXE%
+USB: %USB%
+PIN: %PIN%
+ANTI: %ANTI%
+DROP: %DROP%
+PATH1: %%PATH1%%
+PATH2: %PATH2%
+fullpath: %%PATH1%%%PATH2%%EXE%
+BTC_ADDR: %BTC_ADDR%
+DWN_CHK: %DWN_CHK%
+DWN_LINK: %DWN_LINK%
+Delay: %Delay%
+------------------------------------------
+
+extracted from 3fbe7ef77638ad28c2f96f986224391aa118f3ff488975d4de87c10ef3023361
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/8hmQdr3z
+retrieved c2 ip: 113(.)163.8.208(:)9989
+Pastebin: 7sbQirAgBxbtluHgcOZLoHUBl8kuq+zZPebeoS7mepreUdaiiQOmNlrRPYAcCbAC
+EncryptionKey: nyancat
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Window Protection.exe
+USB: True
+PIN: False
+ANTI: True
+DROP: True
+PATH1: %AppData%
+PATH2: \Window Protection\
+fullpath: %AppData%\Window Protection\Window Protection.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from 5040014ca6f7c96045223f519b0bb22708a2cef16d1db572e8746c3ffb84a514
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/DDTVwwbu
+retrieved c2 ip: <could not retrieve>
+Pastebin: lUMO6HXqBnMGw7T0H5IbPaMKiDHlrXU+m/bx93A+shHtyBpP5pohmjOzgdBjbvTx
+EncryptionKey: 1
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Wservices.exe
+USB: False
+PIN: False
+ANTI: False
+DROP: False
+PATH1: %Temp%
+PATH2: \
+fullpath: %Temp%\Wservices.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from 67578152293ecb30216bf496ff017d37ca4982705dcebd0eb1337c8ef7643c09
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/H6K0uUqr
+retrieved c2 ip: <could not retrieve>
+Pastebin: K5UZNzl8bG2cw5W1ghwZxY8Pa1YoI6o0/WzgDrbQ7mjFgBMJ8LHRDRvxrYWX+6qX
+EncryptionKey: elprofessor
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Dork searcher gold.exe
+USB: True
+PIN: True
+ANTI: True
+DROP: True
+PATH1: %AppData%
+PATH2: \
+fullpath: %AppData%\Dork searcher gold.exe
+BTC_ADDR: 1Jyrji1JwM6wcv9w6E7GWRUfBt8VyAu6g1
+DWN_CHK: True
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from 7437f55d135a00ad84c3246f6032d07ba3cb9d0b33add740e99ab7e0d4957636
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/K0hDmpfV
+retrieved c2 ip: 2(.)tcp.ngrok.io(:)11894
+Pastebin: hUwLBl/bjOfzwnXKc+Gspd+45X1xO3x7drWwfAAQRwF0wgf+mHACUzY+D4wC2Qld
+EncryptionKey: 11894
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: testRAT.exe
+USB: False
+PIN: False
+ANTI: False
+DROP: False
+PATH1: %Temp%
+PATH2: \
+fullpath: %Temp%\testRAT.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from 8021c0f15d38b0fe1891b2c825acd6c956f18113835053eddb959e3121f0ae1d
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/dZ1cYPAi
+retrieved c2 ip: 20(.)151.239.107(:)80
+Pastebin: RdEjVvmrlg4U8KCA+Vojt6KC38WrCcLUwlMZ8qQhOEXhRJJASvteFZHkBzBimyMs
+EncryptionKey: sparrow
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: proxy-generateur.exe
+USB: True
+PIN: True
+ANTI: True
+DROP: True
+PATH1: %AppData%
+PATH2: \
+fullpath: %AppData%\proxy-generateur.exe
+BTC_ADDR: bc1qeryt09mrl4kljxd6804vypl99d5l6ls9nqzsvc
+DWN_CHK: True
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from 8705cbec7c69744539817c2270799be423c430786100660d7004e63b278df189
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/fhNtWdi0
+retrieved c2 ip: <could not retrieve>
+Pastebin: zO1mwGohdnFe+JuxepsrSIgzpNS3zOKD4Dn4kdgoKoKiSn6ubIaFn7wXvZpMzZdy
+EncryptionKey: A83D9FB39I8V89C03
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: main.py.exe
+USB: True
+PIN: True
+ANTI: True
+DROP: True
+PATH1: %Temp%
+PATH2: \
+fullpath: %Temp%\main.py.exe
+BTC_ADDR: bc1qgs00egt9n4kuzjfve2ftwmrgcktgfecsge64u5
+DWN_CHK: True
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from 8c380805f7a18f478e55ddfbe2eeb28d9c9c890a5366c6386c363a2420c70078
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/DDTVwwbu
+retrieved c2 ip: <could not retrieve>
+Pastebin: mvr2glLzlKwJbFzLmKV6X7SHvmE8B8D+RgwmVmibgc9siHUMqYgzcdNjOtpTwVjk
+EncryptionKey: dedsec
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Dedsec.exe
+USB: False
+PIN: False
+ANTI: False
+DROP: True
+PATH1: %UserProfile%
+PATH2: \root\
+fullpath: %UserProfile%\root\Dedsec.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from 90b478a2e73934fb055e9df93ebb25028a6008e56b3074ced0d13e5498de72f3
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/DDTVwwbu
+retrieved c2 ip: <could not retrieve>
+Pastebin: gIIw57fqlrLCdPBso6pLcm4kQM6Q+yYA96WLiWeAD7NW1YMvHH2zMbq1ifhhjLR7
+EncryptionKey: rats
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: NanoHax.exe
+USB: True
+PIN: False
+ANTI: False
+DROP: True
+PATH1: %UserProfile%
+PATH2: \
+fullpath: %UserProfile%\NanoHax.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from 97bc8232e3d9685d939532e0d51dd4a91d1d3017779fda452af8567578ac2cdf
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/LUHutwEC
+retrieved c2 ip: 4(.)206.211.78(:)80
+Pastebin: RdEjVvmrlg4U8KCA+Vojt4w7ecYP8LCOkQUyoWUBpVmbNrps1GjpC5WPHNlaVtOZ
+EncryptionKey: sparrow
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: crack-Netflix-password.exe
+USB: True
+PIN: True
+ANTI: True
+DROP: True
+PATH1: %AppData%
+PATH2: \
+fullpath: %AppData%\crack-Netflix-password.exe
+BTC_ADDR: bc1qeryt09mrl4kljxd6804vypl99d5l6ls9nqzsvc
+DWN_CHK: True
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from 9f5e24bf036b90f5cfa1be381e20ccae135ee1dd081a43cfde43a31ab751cbad
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/qXMZHuT8
+retrieved c2 ip: 5(.)tcp.eu.ngrok.io(:)18920
+Pastebin: NztrQMO8OwLKR21IbteHc8B1hsqjDY73nUQqL11oerhSAU1xg28pzxhnTTysw8EE
+EncryptionKey: 29986272.As
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Wservices.exe
+USB: False
+PIN: False
+ANTI: False
+DROP: False
+PATH1: %AppData%
+PATH2: \
+fullpath: %AppData%\Wservices.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from a408402de01a362f79a9a1676ca13407756a7c0fd3b39497bae20374da34a066
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/DDTVwwbu
+retrieved c2 ip: <could not retrieve>
+Pastebin: uElmalpF7hw8r34xks5pDwjH+1UsNMxQDqHIMc7faPvRzCbiegkN151A7m8UOGI2
+EncryptionKey: FFj+YDsYUMU0LHX0zcAU+w==
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Wservices.exe
+USB: True
+PIN: True
+ANTI: True
+DROP: False
+PATH1: %Temp%
+PATH2: \
+fullpath: %Temp%\Wservices.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from a5b974855e96ebcf7ac7a3591deb9a5538d13d7831aa2b0b34892aac3e74ac3d
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/n0tC7n0k
+retrieved c2 ip: 4(.)229.224.1(:)80
+Pastebin: RdEjVvmrlg4U8KCA+Vojt5HjHXbYJAHoiuoDg3k1DbKzfW0oUeQs48/Z+imipC3g
+EncryptionKey: sparrow
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: sender-id.exe
+USB: True
+PIN: True
+ANTI: True
+DROP: True
+PATH1: %AppData%
+PATH2: \
+fullpath: %AppData%\sender-id.exe
+BTC_ADDR: bc1qeryt09mrl4kljxd6804vypl99d5l6ls9nqzsvc
+DWN_CHK: True
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from aac11ebb5ae02d4c7b9699397acf908fa81f5de413416000d54bb6cb16ad8f08
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/dPL0gsvg
+retrieved c2 ip: 193(.)161.193.99(:)57240
+Pastebin: 1/3XcZB04zKWqkV0fFKwdEAR+pIRavMjvLPUWM0qZFt1D2q9O9cxCfHUBlXfb0Mf
+EncryptionKey: dame
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: israel.exe
+USB: False
+PIN: False
+ANTI: False
+DROP: True
+PATH1: %Temp%
+PATH2: \
+fullpath: %Temp%\israel.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from b55bb8bc0c7eb8f0ce55e200149225e3dcb3aed31278b5bdcc8a7efae977ab6f
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/v9J7B6vz
+retrieved c2 ip: 193(.)161.193.99(:)61716
+Pastebin: oSctNPeF6Y5QnljcoYKs1fKSp6/YbmTmBxrbfVC/4zPaHGfPvjIYTLJPlzHn9CoD
+EncryptionKey: killisrael
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: killisrael.exe
+USB: False
+PIN: False
+ANTI: False
+DROP: True
+PATH1: %Temp%
+PATH2: \
+fullpath: %Temp%\killisrael.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from c8f051092235601b3703f83a8d8ec6fcdb771c501fc83b9249ce28f6d3779b8c
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/LJe9sUk5
+retrieved c2 ip: 91(.)92.242.192(:)14982
+Pastebin: Su5reVhMbpanH8nWaxZp8OB1qpGkARoK+mhYHYtykdeUXQ9s1bCkTxeszUgXmSVT
+EncryptionKey: NYANCAT
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Wservices.exe
+USB: True
+PIN: False
+ANTI: False
+DROP: False
+PATH1: %Temp%
+PATH2: \
+fullpath: %Temp%\Wservices.exe
+BTC_ADDR: 1B5aLZh6psoQttLGn9tpbdibiWqzyh4Jfv
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from d1000e13e8aeb3b80ab8538e4d214b4953436e2e9125674e1a6734e717c59bad
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/ziuR7cq8
+retrieved c2 ip: 4(.)229.224.1(:)80
+Pastebin: RdEjVvmrlg4U8KCA+Vojt4VqaOAgtArsNVj0gzSHLckG6QRNvWb+mszha2QUO2WD
+EncryptionKey: sparrow
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: paradox-sender-id.exe
+USB: True
+PIN: True
+ANTI: True
+DROP: True
+PATH1: %AppData%
+PATH2: \
+fullpath: %AppData%\paradox-sender-id.exe
+BTC_ADDR: bc1q5t5dm0pksnydnj8xkz85jfrfc6ql3zfdx5w0rv
+DWN_CHK: True
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from d268b0316996e563901b0613e2bd7d080bf58700689d62d4060829cdc241b58a
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/RFhqRhCY
+retrieved c2 ip: <could not retrieve>
+Pastebin: AVzi/+xBtDxRrYFLyTxmCBaFgaDxlpSD9DTj7BgNcqEyVxdEgbYvC04oDO5y2f/A
+EncryptionKey: jhzliu5g3lia43a3tu766
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Wservices.exe
+USB: True
+PIN: False
+ANTI: True
+DROP: True
+PATH1: %Temp%
+PATH2: \
+fullpath: %Temp%\Wservices.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 10
+------------------------------------------
+
+extracted from d6c3759f772560df24c556d83978f7ee6054d8b3b2fb509547d21bbf70a619ef
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/fQKPRgnd
+retrieved c2 ip: <could not retrieve>
+Pastebin: wTVVtH2ElNGT7qc7eavhnisMhDk38DBb95bLauRmV6oReMPglpzFnCzQynVa7xJW
+EncryptionKey: zynova
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Wservices.exe
+USB: False
+PIN: False
+ANTI: True
+DROP: False
+PATH1: %Temp%
+PATH2: \
+fullpath: %Temp%\Wservices.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from dfc954753d9dc50eacb0f5aa9bc11dd045dace6c2265d1cd058aff94b99646af
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/SKyptWbF
+retrieved c2 ip: 193(.)161.193.99(:)40760
+Pastebin: enmb53L5eA+gZLNGmHI+0/e0p73tYKfDWVr0Ek6JU6Kp750hav7lMfsqD23MAbNq
+EncryptionKey: 40760
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Protect.exe
+USB: False
+PIN: False
+ANTI: False
+DROP: True
+PATH1: %Temp%
+PATH2: \
+fullpath: %Temp%\Protect.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from e19c9e2d62a634ae7d448d49e79579afa9ea9a11d6428c7e5c92d0de33a29e69
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/2h0KMKF6
+retrieved c2 ip: 127(.)0.0.1(:)1337
+Pastebin: eFDJo9ZXC/5lnoZnxZVZIn1pa/68ZRcCB02NQCr+/bqpy6EZcVDFrCmvit8uWu40
+EncryptionKey: FUCKTHATPCLOL
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Discord.exe
+USB: True
+PIN: False
+ANTI: False
+DROP: True
+PATH1: %UserProfile%
+PATH2: \UPDATER\
+fullpath: %UserProfile%\UPDATER\Discord.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from e271d36306e564827a56d8745d600111b30807c1972ddddb0c8e8e4dfba463db
+
+decrypted pastebin retrieval URL: https(:)//congcufacebook(.)com/ip
+retrieved c2 ip: <no pastebin link>
+Pastebin: o7Yt/Wk8Oq0WSIn20Wb84mMXoNRXUlCKHtHs9k4Pmlk=
+EncryptionKey: 123
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: System.exe
+USB: True
+PIN: True
+ANTI: True
+DROP: True
+PATH1: %AppData%
+PATH2: \System\
+fullpath: %AppData%\System\System.exe
+BTC_ADDR: System
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from e47ebff8db8445fac5e5cfa3a9cf5f3543907ac8d47066a2cbd80c00be10749d
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/H6K0uUqr
+retrieved c2 ip: <could not retrieve>
+Pastebin: K5UZNzl8bG2cw5W1ghwZxY8Pa1YoI6o0/WzgDrbQ7mjFgBMJ8LHRDRvxrYWX+6qX
+EncryptionKey: elprofessor
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Dork searcher gold.exe
+USB: True
+PIN: True
+ANTI: True
+DROP: True
+PATH1: %AppData%
+PATH2: \
+fullpath: %AppData%\Dork searcher gold.exe
+BTC_ADDR: 1Jyrji1JwM6wcv9w6E7GWRUfBt8VyAu6g1
+DWN_CHK: True
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from e9fe5b95185cc6cad39bf57f49675243962b353a2697c8877e31140349667c86
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/cXuQ0V20
+retrieved c2 ip: <could not retrieve>
+Pastebin: eV4yYaZpawgKvQgZKPZj0hgHp+mETvneM4H56wREt4M1pRhgzF0ajd2b+45BGj8o
+EncryptionKey: nulled
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Winservices.exe
+USB: True
+PIN: False
+ANTI: True
+DROP: False
+PATH1: %AppData%
+PATH2: \
+fullpath: %AppData%\Winservices.exe
+BTC_ADDR: 1JBKLGyE6AnRGvk92A8x3m8qmXfh3fcEty
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from ebd168eca411717ff3faa6f8cfb082a2d7b90797adcafa939393ac9addd2146e
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/USD6cfnj
+retrieved c2 ip: 231231(.)ddns.net(:)1000
+Pastebin: udaqW+5ZGJ1ctzOfDk6cG6dNGro/uAeszG/kOSq4ItXTzGTGCnSKI+dz1k5tpfhp
+EncryptionKey: 1000
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: DefenderControll.exe
+USB: False
+PIN: False
+ANTI: False
+DROP: True
+PATH1: %UserProfile%
+PATH2: \Windows Defender\
+fullpath: %UserProfile%\Windows Defender\DefenderControll.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from ee31fd6498e39135434c49e6102c3115b88ef1f3c3fae5aed967c29742a624e0
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/DDTVwwbu
+retrieved c2 ip: <could not retrieve>
+Pastebin: uElmalpF7hw8r34xks5pDwjH+1UsNMxQDqHIMc7faPvRzCbiegkN151A7m8UOGI2
+EncryptionKey: FFj+YDsYUMU0LHX0zcAU+w==
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: Wservices.exe
+USB: True
+PIN: True
+ANTI: True
+DROP: False
+PATH1: %Temp%
+PATH2: \
+fullpath: %Temp%\Wservices.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from fd3a5396eaa4725e9e17e35ef05fd34f0762a2f04fb302c43bb7052e53ab5ad6
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/hq1MSJc0
+retrieved c2 ip: 81(.)79.109.146(:)7777
+Pastebin: 4S9sbuvc/9cBn3Ra86jetJG2sw25G1kzXA5C1L7Oe8PWvfYJaHuzyTv6D/Knu0lR
+EncryptionKey: 1111
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: FLOPPA.exe
+USB: False
+PIN: False
+ANTI: False
+DROP: True
+PATH1: %UserProfile%
+PATH2: \FLopping\
+fullpath: %UserProfile%\FLopping\FLOPPA.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
+------------------------------------------
+
+extracted from ffe9b64bfc91750c1e7ea347b30220a6b7d09f5ff14f67489f5df2c665162428
+
+decrypted pastebin retrieval URL: https(:)//pastebin(.)com/raw/K0hDmpfV
+retrieved c2 ip: 2(.)tcp.ngrok.io(:)11894
+Pastebin: 4S9sbuvc/9cBn3Ra86jetN2zO4/xthQXKuObN/vw0vSMsAzXzOy4sltPhUZsLFS2
+EncryptionKey: 1111
+ENDOF: |'N'|
+SPL: |'L'|
+EXE: testRAT.exe
+USB: False
+PIN: False
+ANTI: False
+DROP: True
+PATH1: %Temp%
+PATH2: \
+fullpath: %Temp%\testRAT.exe
+BTC_ADDR: <empty>
+DWN_CHK: False
+DWN_LINK: <empty>
+Delay: 3
