@@ -1,0 +1,24 @@
+{
+  "name": "gootloader_decoder",
+  "version": "1.0.0",
+  "description": "Deobfuscation for Gootloader",
+  "main": "gootloader_decoder.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/struppigel/hedgehog-tools.git"
+  },
+  "keywords": [
+    "gootloader",
+    "deobfuscation",
+    "javascript"
+  ],
+  "author": "Karsten Hahn",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/struppigel/hedgehog-tools/issues"
+  },
+  "homepage": "https://github.com/struppigel/hedgehog-tools#readme"
+}
