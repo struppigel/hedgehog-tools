@@ -15,7 +15,7 @@ const beautify_opts = {
 /**
  * Extracts functions from JavaScript code that are called or referenced starting from a given function. 
  * The functions are collected recursively using an abstract syntax tree of the given code.
- * Tested on a Gootkit sample where the relevant malware functions are buried in 10000 lines of code.
+ * Tested on a Gootloader sample where the relevant malware functions are buried in 10000 lines of code.
  *
  * Sample: 1bc77b013c83b5b075c3d3c403da330178477843fc2d8326d90e495a61fbb01f
  * 
