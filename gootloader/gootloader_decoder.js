@@ -14,7 +14,7 @@ const beautifyOpts = {
 /**
  * Extracts, unpacks and beautifies 3 layers of GootLoader's JavaScript code 
  * using abstract syntax tree parsing via babel.
- * Extracts the GET request parameters of the final layer and prints them to console.
+ * Extracts the C2s of the final layer and prints them to console.
  * Resulting unpacked code is saved to transpiled.layer[1|2|3].js
  *
  * Sample: 1bc77b013c83b5b075c3d3c403da330178477843fc2d8326d90e495a61fbb01f
