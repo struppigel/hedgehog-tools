@@ -14,11 +14,13 @@ const beautifyOpts = {
 /**
  * Extracts, unpacks and beautifies 3 layers of GootLoader's JavaScript code 
  * using abstract syntax tree parsing via babel.
- * Extracts the C2s of the final layer and prints them to console.
+ * Extracts the C2s the final layer and prints them to console.
  * Resulting unpacked code is saved to transpiled.layer[1|2|3].js
  *
- * Sample: 1bc77b013c83b5b075c3d3c403da330178477843fc2d8326d90e495a61fbb01f
- * 
+ * Samples: 
+ * 1bc77b013c83b5b075c3d3c403da330178477843fc2d8326d90e495a61fbb01f --> complete
+ * 08f06fc48fe8d69e4ab964500150d1b2f5f4279fea2f76fdfcefd32266dfa1af --> only unpack TODO layer 4
+ * 1b8b2fbdff9e4109edae317c4dd8cef7bb7877d656e97a3dd0a1e8c0c9d72b0b --> only unpack TODO layer 4
  */
 
 if (require.main === module) {
@@ -101,16 +103,27 @@ function transpileLayer1(AST, options, outfile){
 
 function filterAssignmentsNotInFunctionsFromIds(AST, ids, startNodeName){
   const assigns = [];
-
   const findFunctionNodeVisitor = {
     FunctionDeclaration(path) {
       if(path.node.id.name == startNodeName){
-        for(const statement of path.parentPath.node.body){
+        
+        for(const statement of path.parentPath.node.body){ // search in main body for assignments
           if(statement.type == "ExpressionStatement" 
           && statement.expression.type == "AssignmentExpression"
           && ids.includes(statement.expression.left.name)
           ){
             assigns.push(statement);
+          }
+          // search also in if statement blocks for assignments, see 08f06fc48fe8d69e4ab964500150d1b2f5f4279fea2f76fdfcefd32266dfa1af
+          if(statement.type == "IfStatement"){ 
+            for(const ifbodyNode of statement.consequent.body){
+              if(ifbodyNode.type == "ExpressionStatement" 
+              && ifbodyNode.expression.type == "AssignmentExpression"
+              && ids.includes(ifbodyNode.expression.left.name)
+              ){
+                assigns.push(ifbodyNode);
+              }
+            }
           }
         }
         path.stop();
@@ -159,7 +172,6 @@ function decryptCodeLayer2(layer1AST){
   console.log('decode constant found ' + idxMax);
   const decoded = gootloaderDecode(encryptedBlob, idxMax)
   console.log("decoded " + decoded.length + " bytes");
-  //console.log(decoded);
   const decrypted = gootloaderDecrypt(decoded, key).pop();
   console.log(decrypted);
   console.log("decrypted " + decrypted.length + " bytes");
@@ -302,6 +314,7 @@ function extractBiggestStringLiteralValue(AST){
 function buildEncryptedString(AST, encryptedVarNode) {
   // this call will change AST so that the encryptedVarNode will be assigned a single StringLiteral
   replaceIdentifiersWithStringLiteral(AST, encryptedVarNode);
+
   // that means the right side of the assignment operation contains the string
   return encryptedVarNode.right.value;
 }
@@ -391,6 +404,7 @@ function replaceIdentifiersWithStringLiteral(AST, encryptedVarNode){
   deleteStringAssignmentNodes(assignmentNodes);
   replaceIdentifiersWithStringLiterals(secondStrAssignMap);
   concatStringLiterals(AST);
+
 }
 
 /**
