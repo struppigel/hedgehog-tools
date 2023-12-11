@@ -14,7 +14,7 @@ const beautifyOpts = {
 /**
  * Extracts, unpacks and beautifies 3 layers of GootLoader's JavaScript code 
  * using abstract syntax tree parsing via babel.
- * Extracts the GET request parameters of the final layer and prints them to console.
+ * Extracts the C2s the final layer and prints them to console.
  * Resulting unpacked code is saved to transpiled.layer[1|2|3].js
  *
  * Sample: 1bc77b013c83b5b075c3d3c403da330178477843fc2d8326d90e495a61fbb01f
@@ -46,9 +46,9 @@ function main() {
 
   transpileLayer1(AST, options, "transpiled.layer1.js");
   console.log("\n----------------- Layer 2 -----------------\n");
-  const layer2AST = transpileLayer2(AST, "transpiled.layer2.js");
+  const {layer2AST, decodeConstant} = transpileLayer2(AST, "transpiled.layer2.js");
   console.log("\n----------------- Layer 3 -----------------\n");
-  const layer3AST = transpileLayer3(layer2AST, "transpiled.layer3.js");
+  const layer3AST = transpileLayer3(layer2AST, "transpiled.layer3.js", decodeConstant);
   console.log("\n----------------- C2s -----------------\n");
   const c2list = extractC2s(layer3AST);
   for(const c2 of c2list){
@@ -70,31 +70,56 @@ function extractC2s(layer3AST){
   return c2list;
 }
 
-function transpileLayer3(layer2AST, outfile){
-  const decryptedCodeL3 = decryptCodeLayer3(layer2AST);
+function transpileLayer3(layer2AST, outfile, decodeConstant){
+  const decryptedCodeL3 = decryptCodeLayer3(layer2AST, decodeConstant);
   const layer3AST = beautifyAndWriteCodeToFile(decryptedCodeL3, outfile);
   return layer3AST;
 }
 
 function transpileLayer2(AST, outfile){
-  const decryptedCodeL2 = decryptCodeLayer2(AST);
-  const layer2AST = beautifyAndWriteCodeToFile(decryptedCodeL2, outfile);
-  return layer2AST;
+  const {decrypted, decodeConstant} = decryptCodeLayer2(AST);
+  const layer2AST = beautifyAndWriteCodeToFile(decrypted, outfile);
+  return {layer2AST, decodeConstant};
 }
 
 function transpileLayer1(AST, options, outfile){
   const startNodes = options.start ? [options.start] : findPotentialStartNodes(AST);
   console.log('Start nodes found ' + startNodes);
   const ids = findIdentifiersInNodes(AST, startNodes);
-  const functionDeclarations = filterFunctionsFromIds(AST, ids);
-  const functionNames = functionDeclarations.map((f) => f.id.name);
  
+  const functionDeclarations = filterFunctionsFromIds(AST, ids);
+  const varAssignmentsNotInFunctions = filterAssignmentsNotInFunctionsFromIds(AST, ids, startNodes[0]); 
+
+  const functionNames = functionDeclarations.map((f) => f.id.name);
   console.log('functions found: ' + functionNames);
 
-  AST.program.body = functionDeclarations; 
+  AST.program.body = varAssignmentsNotInFunctions.concat(functionDeclarations); 
   const codeLayer1 = generate(AST, beautifyOpts).code;
   fs.writeFileSync(outfile, codeLayer1);
   console.log("the code was saved to " + outfile);
+}
+
+function filterAssignmentsNotInFunctionsFromIds(AST, ids, startNodeName){
+  const assigns = [];
+
+  const findFunctionNodeVisitor = {
+    FunctionDeclaration(path) {
+      if(path.node.id.name == startNodeName){
+        for(const statement of path.parentPath.node.body){
+          if(statement.type == "ExpressionStatement" 
+          && statement.expression.type == "AssignmentExpression"
+          && ids.includes(statement.expression.left.name)
+          ){
+            assigns.push(statement);
+          }
+        }
+        path.stop();
+      }
+    }
+  }
+
+  traverse(AST,findFunctionNodeVisitor);
+  return assigns;
 }
 
 function beautifyAndWriteCodeToFile(code, outfile) {
@@ -111,9 +136,9 @@ function beautifyAndWriteCodeToFile(code, outfile) {
  * @param {*} layer2AST 
  * @returns 
  */
-function decryptCodeLayer3(layer2AST){
+function decryptCodeLayer3(layer2AST, decodeConstant){
   const encryptedBlob = extractBiggestStringLiteralValue(layer2AST);
-  const decryptedCode = gootloaderDecode(encryptedBlob);
+  const decryptedCode = gootloaderDecode(encryptedBlob, decodeConstant);
   // wrap into function declaration to allow parsing
   return 'function gldr(){ ' + decryptedCode + ' }'; 
 }
@@ -127,9 +152,45 @@ function decryptCodeLayer2(layer1AST){
   const encryptedVarNode = findLayer1EncryptedCodeBuilder(layer1AST);
   console.log('identified encrypted data node: ' + encryptedVarNode.left.name);
   const encryptedBlob = buildEncryptedString(layer1AST, encryptedVarNode);
-  const key = extractKey(layer1AST, encryptedVarNode.left.name);
+  const {key, decodeFunctionName} = extractKeyAndDecodeFunction(layer1AST, encryptedVarNode.left.name);
   console.log('extracted key: ' + key);
-  return gootloaderDecrypt(gootloaderDecode(encryptedBlob), key)[1];
+  console.log('decode function: ' + decodeFunctionName);
+  const idxMax = findDecodeConstant(layer1AST, decodeFunctionName);
+  console.log('decode constant found ' + idxMax);
+  const decoded = gootloaderDecode(encryptedBlob, idxMax)
+  console.log("decoded " + decoded.length + " bytes");
+  //console.log(decoded);
+  const decrypted = gootloaderDecrypt(decoded, key).pop();
+  console.log(decrypted);
+  console.log("decrypted " + decrypted.length + " bytes");
+  return {'decrypted' : decrypted, 'decodeConstant': idxMax};
+}
+
+function findDecodeConstant(layer1AST, decodeFunctionName){
+  
+  let decodeConstant = 0;
+
+  const getDecodeConstantVisitor = {
+    BinaryExpression(path) {
+      if(path.node.operator == "<"){
+        decodeConstant = path.node.right.value;
+        path.stop();
+      }
+    }
+  }
+
+  const findDecodeFunctionVisitor = {
+    FunctionDeclaration(path) {
+      if(path.node.id.name == decodeFunctionName){
+        const { scope, node } = path
+        scope.traverse(node, getDecodeConstantVisitor, this);
+        path.stop();
+      }
+    }
+  }
+
+  traverse(layer1AST,findDecodeFunctionVisitor);
+  return decodeConstant;
 }
 
 /**
@@ -141,14 +202,15 @@ function decryptCodeLayer2(layer1AST){
  * @param {*} encryptedVarNode 
  * @returns 
  */
-function extractKey(AST, encryptVarName){
+function extractKeyAndDecodeFunction(AST, encryptVarName){
   let key = '';
   let keyName = '';
-
+  let decodeFunctionName = '';
   const findKeyVarNameVisitor = {
     CallExpression(path) {
       if(path.node.arguments.length == 1 
         && path.node.arguments[0].name == encryptVarName) {
+          decodeFunctionName = path.parentPath.node.arguments[0].callee.name;
           keyName = path.parentPath.node.arguments[1].name; // get name of second argument from parent call
           path.stop();
       }
@@ -166,7 +228,7 @@ function extractKey(AST, encryptVarName){
 
   traverse(AST,findKeyVarNameVisitor);
   traverse(AST,findKeyVarContentVisitor);
-  return key;
+  return {key, decodeFunctionName};
 }
 
 /**
@@ -194,7 +256,7 @@ function gootloaderDecrypt(encryptedStr, key) {
  * @param {*} encodedStr 
  * @returns 
  */
-function gootloaderDecode(encodedStr) {
+function gootloaderDecode(encodedStr, idxMax) {
 
   function flip(somestr, somechar, idx) {
     if (idx % 2) return somestr + somechar;
@@ -202,7 +264,7 @@ function gootloaderDecode(encodedStr) {
   }
   let idx = 0;
   let result = "";
-  while (idx < 2704) {
+  while (idx < idxMax) {
     const charSub = encodedStr.substr(idx,1);
     result = flip(result, charSub, idx);
     idx++;
@@ -314,10 +376,9 @@ function replaceIdentifiersWithStringLiteral(AST, encryptedVarNode){
     }
     traverse(AST,replaceNodeVisitor);
   }
-
+  
   const ids = getIdentifiersFromNode(encryptedVarNode);
   const assignmentNodes = findAssignmentNodesForNames(ids);
-  
   const ids_secondpass = getIdentifiersFromNodes(assignmentNodes);
   const stringAssignNodes = findAssignmentNodesForNames(ids_secondpass);
 
@@ -325,7 +386,7 @@ function replaceIdentifiersWithStringLiteral(AST, encryptedVarNode){
   deleteStringAssignmentNodes(stringAssignNodes);
   replaceIdentifiersWithStringLiterals(strAssignMap);
   concatStringLiterals(AST);
-  // second pass (for improvement make this recursive)
+  // second pass 
   const secondStrAssignMap = buildStringAssignMap(assignmentNodes);
   deleteStringAssignmentNodes(assignmentNodes);
   replaceIdentifiersWithStringLiterals(secondStrAssignMap);
@@ -340,10 +401,17 @@ function replaceIdentifiersWithStringLiteral(AST, encryptedVarNode){
  * @param {object} AST the abstract syntax tree
  */
 function concatStringLiterals(AST){
+  const maxTraverse = 500; 
+  let cnt = 0;
   const concatStringLiteralsVisitor = {
     BinaryExpression(path) {
       if(path.node.left.type == "BinaryExpression") {
-          path.traverse(concatStringLiteralsVisitor);
+          cnt = cnt + 1;
+          if(cnt < maxTraverse) path.traverse(concatStringLiteralsVisitor);
+          else {
+            console.warn('Abort string concat because of max traverse count!');
+            path.stop();
+          }
       }
       if(path.node.left.type == "StringLiteral" && path.node.right.type == "StringLiteral"){
         const resval = path.node.left.value + path.node.right.value;
@@ -399,7 +467,7 @@ function findPotentialStartNodes(AST){
   const findStartNodeVisitor = {
     CallExpression(path) {
       if(
-        path.node.arguments.length == 1                  // exactly one argument
+        path.node.arguments.length == 1                     // exactly one argument
         && path.node.arguments[0].type == 'NumericLiteral'  // argument is a numeric literal
         && typeof path.node.callee.name !== 'undefined'     // function has a name
         ) {
@@ -429,23 +497,7 @@ function printHints(options) {
 }
 
 /**
- * Removes all functions whose names are in the functionToClean list.
- * @param {object} AST the abstract syntax tree (will be modified)
- * @param {string[]} functionToClean function names to with functions to remove
- */
-function cleanupFunctions(AST, functionToClean){
-  const keepOnlyListedFunctionsVisitor = {
-    FunctionDeclaration(path){
-      if(!functionsToClean.includes(path.node.id.name)) {
-        path.remove();
-      }
-    }
-  };
-  traverse(AST, keepOnlyListedFunctionsVisitor);
-}
-
-/**
- * Recursively find all identifiers that are part of function in the nodeNameList
+ * Recursively find all identifiers that are part of functions or assignments in the nodeNameList
  * @param {object} AST the abstract syntax tree
  * @param {string[]} nodeNameList functions that should be traversed for identifiers
  * @param {string[]} ignoreList functions with names on this list are ignored
@@ -454,8 +506,7 @@ function cleanupFunctions(AST, functionToClean){
  */
 function findIdentifiersInNodes(AST, nodeNameList, ignoreList = [], maxdepth = 500){
   let identifiers = [];
-  for (let i = 0; i < nodeNameList.length; i++) {
-    let currNode = nodeNameList[i];
+  for (let currNode of nodeNameList) {
     if(!ignoreList.includes(currNode)){
       let foundNodes = findIdentifiersInNode(AST, currNode);
       if(typeof foundNodes === 'undefined' || foundNodes.length == 0) continue;
@@ -493,7 +544,7 @@ function filterFunctionsFromIds(AST, identifierList){
 }
 
 /**
- * for the function provided in nodeName find all identifiers
+ * for the functions and assignments provided in nodeName find all identifiers
  * @param {object} AST the abstract syntax tree
  * @param {string} nodeName function name
  * @returns list of identifiers
@@ -517,10 +568,19 @@ function findIdentifiersInNode(AST, nodeName){
         scope.traverse(node, collectIdentifiersVisitor, this);
         path.stop();
       }
+    },
+  }
+  const assignFinderVisitor = {
+  AssignmentExpression(path){
+      if(path.node.left.name == nodeName){
+        const { scope, node } = path
+        scope.traverse(node, collectIdentifiersVisitor, this);
+        path.stop();
+      }
     }
   }
-  
-  traverse(AST, nodeFinderVisitor);
-  
+  // functions first because we need to keep those nodes instead of assignments to functions
+  traverse(AST, nodeFinderVisitor); 
+  traverse(AST, assignFinderVisitor);
   return visitedIds;
 }
