@@ -15,7 +15,7 @@ const beautifyOpts = {
  * Extracts, unpacks and beautifies 3 layers of GootLoader's JavaScript code 
  * using abstract syntax tree parsing via babel.
  * Extracts the C2s of the final layer and prints them to console.
- * Resulting unpacked code is saved to transpiled.layer[1|2|3|4|5|6].js
+ * Resulting unpacked code is saved to <sample>.layer[1|2|3|4|5|6].vir
  *
  * Samples: 
  * 1bc77b013c83b5b075c3d3c403da330178477843fc2d8326d90e495a61fbb01f --> complete, has 3 layers
@@ -50,24 +50,24 @@ function main() {
   const script = fs.readFileSync(gootfile, 'utf-8');
   const AST = parser.parse(script, {})
 
-  transpileLayer1(AST, options, "transpiled.layer1.js");
+  transpileLayer1(AST, options, gootfile + ".layer1.vir");
   console.log("\n----------------- Layer 2 -----------------\n");
-  const [layer2AST, constant1] = transpileLayer2(AST, "transpiled.layer2.js");
+  const [layer2AST, constant1] = transpileLayer2(AST, gootfile + ".layer2.vir");
   console.log("\n----------------- Layer 3 -----------------\n");
-  const layer3AST = transpileLayer3(layer2AST, "transpiled.layer3.js", constant1);
+  const layer3AST = transpileLayer3(layer2AST, gootfile + ".layer3.vir", constant1);
   
   let c2list = extractC2s(layer3AST);
   if(c2list.length == 0) { // no c2s found, so we need to unpack layer4 and layer5
     console.log("\n----------------- Layer 4 -----------------\n");
     const originalAST = parser.parse(script, {})
-    const layer4AST = transpileLayer4(originalAST, layer3AST, "transpiled.layer4.js", constant1);
+    const layer4AST = transpileLayer4(originalAST, layer3AST, gootfile + ".layer4.vir", constant1);
     console.log("\n----------------- Layer 5 -----------------\n");
-    const [layer5AST, constant2] = transpileLayer5(layer4AST, "transpiled.layer5.js");
+    const [layer5AST, constant2] = transpileLayer5(layer4AST, gootfile + ".layer5.vir");
     console.log("\n----------------- Layer 6 -----------------\n");
-    const layer6AST = transpileLayer6(layer5AST, "transpiled.layer6.js", constant2);
+    const layer6AST = transpileLayer6(layer5AST, gootfile + ".layer6.vir", constant2);
     c2list = extractC2s(layer6AST);
   }
-  console.log("\n----------------- C2s -----------------\n");
+  console.log("\n------------------ C2s ------------------\n");
   for(const c2 of c2list){
     console.log(c2);
   }
@@ -605,7 +605,11 @@ function findPotentialStartNodes(AST){
         && typeof path.node.callee.name !== 'undefined'     // function has a name
         ) {
           let name = path.node.callee.name;
-          if(!matchingNodes.includes(name)) matchingNodes.push(name);
+          if(!matchingNodes.includes(name)
+          && name.length <= 10
+          && !name.includes('_')) {
+          matchingNodes.push(name);
+        }
       }
     }
   }
