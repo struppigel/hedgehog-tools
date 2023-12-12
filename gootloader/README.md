@@ -8,6 +8,14 @@ So it is likely that this is not the best code because I am a JavaScript noob.
 
 The script is static, it does not execute any of the manipulated code.
 
+## Requirements
+
+Install NodeJS and npm
+
+Execute this to install required packages
+
+`npm.exe install -save-dev @babel/core commander`
+
 ## Usage
 
 `node.exe gootloader_decoder.js -f <sample>`
