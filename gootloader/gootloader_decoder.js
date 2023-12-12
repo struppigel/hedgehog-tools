@@ -14,13 +14,17 @@ const beautifyOpts = {
 /**
  * Extracts, unpacks and beautifies 3 layers of GootLoader's JavaScript code 
  * using abstract syntax tree parsing via babel.
- * Extracts the C2s the final layer and prints them to console.
- * Resulting unpacked code is saved to transpiled.layer[1|2|3].js
+ * Extracts the C2s of the final layer and prints them to console.
+ * Resulting unpacked code is saved to transpiled.layer[1|2|3|4|5|6].js
  *
  * Samples: 
- * 1bc77b013c83b5b075c3d3c403da330178477843fc2d8326d90e495a61fbb01f --> complete
- * 08f06fc48fe8d69e4ab964500150d1b2f5f4279fea2f76fdfcefd32266dfa1af --> only unpack TODO layer 4
- * 1b8b2fbdff9e4109edae317c4dd8cef7bb7877d656e97a3dd0a1e8c0c9d72b0b --> only unpack TODO layer 4
+ * 1bc77b013c83b5b075c3d3c403da330178477843fc2d8326d90e495a61fbb01f --> complete, has 3 layers
+ * 08f06fc48fe8d69e4ab964500150d1b2f5f4279fea2f76fdfcefd32266dfa1af --> complete, has 6 layers
+ * 320b4d99c1f5fbc3cf1dfe593494484b1d4cb1ac7ac1f6266091e85ef51b4508 --> complete, has 6 layers
+ * 445a5c6763877994206d2b692214bb4fba04f40a07ccbd28e0422cb1c21ac95b --> complete, has 6 layers
+ * cbd826f59f1041065890cfe71f046e59ae0482364f1aaf79e5242de2246fb54b --> complete, has 6 layers
+ * b34bcf097ad6ab0459bc6a4a8f487ca3526b6069ec01e8088fd4b00a15420554 --> complete, has 6 layers
+ * 1b8b2fbdff9e4109edae317c4dd8cef7bb7877d656e97a3dd0a1e8c0c9d72b0b --> only unpacks until layer 6
  */
 
 if (require.main === module) {
@@ -48,11 +52,22 @@ function main() {
 
   transpileLayer1(AST, options, "transpiled.layer1.js");
   console.log("\n----------------- Layer 2 -----------------\n");
-  const {layer2AST, decodeConstant} = transpileLayer2(AST, "transpiled.layer2.js");
+  const [layer2AST, constant1] = transpileLayer2(AST, "transpiled.layer2.js");
   console.log("\n----------------- Layer 3 -----------------\n");
-  const layer3AST = transpileLayer3(layer2AST, "transpiled.layer3.js", decodeConstant);
+  const layer3AST = transpileLayer3(layer2AST, "transpiled.layer3.js", constant1);
+  
+  let c2list = extractC2s(layer3AST);
+  if(c2list.length == 0) { // no c2s found, so we need to unpack layer4 and layer5
+    console.log("\n----------------- Layer 4 -----------------\n");
+    const originalAST = parser.parse(script, {})
+    const layer4AST = transpileLayer4(originalAST, layer3AST, "transpiled.layer4.js", constant1);
+    console.log("\n----------------- Layer 5 -----------------\n");
+    const [layer5AST, constant2] = transpileLayer5(layer4AST, "transpiled.layer5.js");
+    console.log("\n----------------- Layer 6 -----------------\n");
+    const layer6AST = transpileLayer6(layer5AST, "transpiled.layer6.js", constant2);
+    c2list = extractC2s(layer6AST);
+  }
   console.log("\n----------------- C2s -----------------\n");
-  const c2list = extractC2s(layer3AST);
   for(const c2 of c2list){
     console.log(c2);
   }
@@ -60,20 +75,58 @@ function main() {
 
 function extractC2s(layer3AST){
   let c2list = [];
-  const findWWWStringVisitor = {
+  const findURLStringVisitor = {
     StringLiteral(path) {
       const v = path.node.value;
-      if(v.startsWith('www.')) {
-         c2list.push(v);
+      if(v.includes('www.') || v.includes('http:') || v.includes('https:')) {
+        const regx = /(https?:[\/\\][\/\\]|www.)[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
+        let matches;
+        let found = false;
+        do {
+          matches = regx.exec(v);
+          if (matches) {
+            c2list.push(matches[0]);
+            found = true;
+          }
+        } while (matches);
+        if(!found){   
+          console.warn('no URL matches despite initial pattern in: ' + v);
+        }
       }
     }
   }
-  traverse(layer3AST,findWWWStringVisitor);
+  traverse(layer3AST,findURLStringVisitor);
   return c2list;
 }
 
-function transpileLayer3(layer2AST, outfile, decodeConstant){
-  const decryptedCodeL3 = decryptCodeLayer3(layer2AST, decodeConstant);
+function transpileLayer6(AST, outfile, decodeConstant){
+  return transpileLayer3(AST, outfile, decodeConstant);
+}
+
+function transpileLayer5(AST, outfile){
+  const [layer5AST, decodeConstant] = transpileLayer2(AST, outfile);
+  return [layer5AST, decodeConstant];
+}
+
+function transpileLayer4(originalAST, layer3AST, outfile, decodeConstant){  
+  const encryptedVarNode = findLayer4EncryptedCodeBuilder(layer3AST);
+  console.log('found encryption node: ' + encryptedVarNode.left.name);
+  
+  //inserting node into old tree to have all the assignment values in one AST
+  insertEncryptionNode(originalAST, encryptedVarNode); 
+
+  const encryptedBlob = buildEncryptedString(originalAST, encryptedVarNode);
+  //console.log('encryptedBlob: ' + encryptedBlob);
+  
+  const decoded = gootloaderDecode(encryptedBlob, decodeConstant);
+  console.log("decoded " + decoded.length + " bytes");
+  //console.log(decoded);
+
+  return beautifyAndWriteCodeToFile(decoded, outfile);
+}
+
+function transpileLayer3(AST, outfile, decodeConstant){
+  const decryptedCodeL3 = decryptCodeLayer3(AST, decodeConstant);
   const layer3AST = beautifyAndWriteCodeToFile(decryptedCodeL3, outfile);
   return layer3AST;
 }
@@ -81,14 +134,14 @@ function transpileLayer3(layer2AST, outfile, decodeConstant){
 function transpileLayer2(AST, outfile){
   const {decrypted, decodeConstant} = decryptCodeLayer2(AST);
   const layer2AST = beautifyAndWriteCodeToFile(decrypted, outfile);
-  return {layer2AST, decodeConstant};
+  return [layer2AST, decodeConstant];
 }
 
 function transpileLayer1(AST, options, outfile){
   const startNodes = options.start ? [options.start] : findPotentialStartNodes(AST);
   console.log('Start nodes found ' + startNodes);
   const ids = findIdentifiersInNodes(AST, startNodes);
- 
+
   const functionDeclarations = filterFunctionsFromIds(AST, ids);
   const varAssignmentsNotInFunctions = filterAssignmentsNotInFunctionsFromIds(AST, ids, startNodes[0]); 
 
@@ -99,6 +152,30 @@ function transpileLayer1(AST, options, outfile){
   const codeLayer1 = generate(AST, beautifyOpts).code;
   fs.writeFileSync(outfile, codeLayer1);
   console.log("the code was saved to " + outfile);
+}
+
+function insertEncryptionNode(AST, encryptedVarNode){
+  for (const instr of AST.program.body){
+    if(instr.type == "FunctionDeclaration" && instr.body.type == "BlockStatement") {
+      instr.body.body.push(encryptedVarNode);
+      return;
+    }
+  }
+  // we did not arrive at a block statement inthe program body, so let's try another location
+  const findFunctionVisitor = {
+    BlockStatement(path) {
+      if(path.node.body.length > 20){
+        for (const instr of path.node.body){
+          if(instr.type == "FunctionDeclaration" && instr.body.type == "BlockStatement") {
+            instr.body.body.push(encryptedVarNode);
+            path.stop();
+          }
+        }
+        
+      }
+    }
+  }
+  traverse(AST,findFunctionVisitor);
 }
 
 function filterAssignmentsNotInFunctionsFromIds(AST, ids, startNodeName){
@@ -115,7 +192,7 @@ function filterAssignmentsNotInFunctionsFromIds(AST, ids, startNodeName){
             assigns.push(statement);
           }
           // search also in if statement blocks for assignments, see 08f06fc48fe8d69e4ab964500150d1b2f5f4279fea2f76fdfcefd32266dfa1af
-          if(statement.type == "IfStatement"){ 
+          if(statement.type == "IfStatement" && statement.consequent.body !== undefined){ 
             for(const ifbodyNode of statement.consequent.body){
               if(ifbodyNode.type == "ExpressionStatement" 
               && ifbodyNode.expression.type == "AssignmentExpression"
@@ -173,7 +250,6 @@ function decryptCodeLayer2(layer1AST){
   const decoded = gootloaderDecode(encryptedBlob, idxMax)
   console.log("decoded " + decoded.length + " bytes");
   const decrypted = gootloaderDecrypt(decoded, key).pop();
-  console.log(decrypted);
   console.log("decrypted " + decrypted.length + " bytes");
   return {'decrypted' : decrypted, 'decodeConstant': idxMax};
 }
@@ -314,8 +390,9 @@ function extractBiggestStringLiteralValue(AST){
 function buildEncryptedString(AST, encryptedVarNode) {
   // this call will change AST so that the encryptedVarNode will be assigned a single StringLiteral
   replaceIdentifiersWithStringLiteral(AST, encryptedVarNode);
-
-  // that means the right side of the assignment operation contains the string
+  if(encryptedVarNode.right.type == "CallExpression") return encryptedVarNode.right.arguments[0].value;
+  // here the encryptedVarNode is assumed to be an AssigmentExpression, 
+  // which means the right side of the assignment operation contains the string
   return encryptedVarNode.right.value;
 }
 
@@ -333,6 +410,7 @@ function replaceIdentifiersWithStringLiteral(AST, encryptedVarNode){
 
   function getIdentifiersFromNode(node){
     if(node.type == "AssignmentExpression") return getIdentifiersFromNode(node.right);
+    else if (node.type == "CallExpression" && node.arguments.length > 0) return getIdentifiersFromNode(node.arguments[0]);
     else if(node.type == "Identifier") return [node.name];
     else if(node.type == "BinaryExpression") {
       return getIdentifiersFromNode(node.left).concat(getIdentifiersFromNode(node.right));
@@ -390,21 +468,23 @@ function replaceIdentifiersWithStringLiteral(AST, encryptedVarNode){
     traverse(AST,replaceNodeVisitor);
   }
   
-  const ids = getIdentifiersFromNode(encryptedVarNode);
-  const assignmentNodes = findAssignmentNodesForNames(ids);
-  const ids_secondpass = getIdentifiersFromNodes(assignmentNodes);
-  const stringAssignNodes = findAssignmentNodesForNames(ids_secondpass);
+  function liftAssignments(nodes, maxrecursion = 10){
+    if(maxrecursion == 0) return;
 
-  const strAssignMap = buildStringAssignMap(stringAssignNodes);
-  deleteStringAssignmentNodes(stringAssignNodes);
-  replaceIdentifiersWithStringLiterals(strAssignMap);
-  concatStringLiterals(AST);
-  // second pass 
-  const secondStrAssignMap = buildStringAssignMap(assignmentNodes);
-  deleteStringAssignmentNodes(assignmentNodes);
-  replaceIdentifiersWithStringLiterals(secondStrAssignMap);
-  concatStringLiterals(AST);
+    const ids = getIdentifiersFromNodes(nodes);
 
+    if(ids.length == 0) return;
+    const assignmentNodes = findAssignmentNodesForNames(ids);
+
+    liftAssignments(assignmentNodes, maxrecursion - 1);
+    const strAssignMap = buildStringAssignMap(assignmentNodes);
+
+    deleteStringAssignmentNodes(assignmentNodes);
+    replaceIdentifiersWithStringLiterals(strAssignMap);
+    concatStringLiterals(AST);
+  }
+
+  liftAssignments([encryptedVarNode]);
 }
 
 /**
@@ -415,25 +495,64 @@ function replaceIdentifiersWithStringLiteral(AST, encryptedVarNode){
  * @param {object} AST the abstract syntax tree
  */
 function concatStringLiterals(AST){
-  const maxTraverse = 500; 
+  const maxTraverse = 2000; 
   let cnt = 0;
+  let printedWarning = false;
   const concatStringLiteralsVisitor = {
     BinaryExpression(path) {
-      if(path.node.left.type == "BinaryExpression") {
+      if(path.node.left.type == "BinaryExpression" && path.node.right.type == "StringLiteral") {
           cnt = cnt + 1;
           if(cnt < maxTraverse) path.traverse(concatStringLiteralsVisitor);
           else {
-            console.warn('Abort string concat because of max traverse count!');
+            if(!printedWarning){
+              console.warn('Abort string concat because of max traverse count!');
+              printedWarning = true;
+            }
             path.stop();
           }
       }
       if(path.node.left.type == "StringLiteral" && path.node.right.type == "StringLiteral"){
         const resval = path.node.left.value + path.node.right.value;
         path.replaceWith(types.stringLiteral(resval));
+      } 
+    }
+  };
+  traverse(AST,concatStringLiteralsVisitor);
+}
+
+/**
+ * Find the node that holds the encrypted string of the 4th code layer
+ * 
+ * @param {object} AST the abstract syntax tree
+ * @returns node that gets assigned the encrypted string for the next layer
+ */
+function findLayer4EncryptedCodeBuilder(AST) {
+  let matchingNode = 'not found';
+  let maxCount = -1;
+
+  function countBinaryExpressionChainWithIdentifiers(node){
+    if(node.left.type == "BinaryExpression"
+    && node.right.type == "Identifier") {
+      return 1 + countBinaryExpressionChainWithIdentifiers(node.left);
+    } else return 0;
+  }
+
+  let findEncryptedCodeBuilderVisitor = {
+    AssignmentExpression(path) {
+      if(path.node.right.type == "CallExpression" 
+      && path.node.right.arguments.length == 1 
+      && path.node.right.arguments[0].type == "BinaryExpression" 
+      ) {
+        let cnt = countBinaryExpressionChainWithIdentifiers(path.node.right.arguments[0]);
+        if(cnt > maxCount) { 
+          maxCount = cnt;
+          matchingNode = path.node; 
+        }
       }
     }
   }
-  traverse(AST,concatStringLiteralsVisitor);
+  traverse(AST, findEncryptedCodeBuilderVisitor);
+  return matchingNode;
 }
 
 /**
