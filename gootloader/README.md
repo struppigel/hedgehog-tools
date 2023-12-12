@@ -22,7 +22,9 @@ Execute this to install required packages
 
 This will unpack the Gootloader script layers to _transpiled.layer\<nr\>.js_. After that it will attempt to find C2 data. Even if some of it fails, it should serve in saving some unpacking steps.
 
-The very first transpiled layer is the extraction of just the relevant functions which are often buried in > 6000 lines of code. To achieve that, the decoder will search for the typical structure of the entry point function and determine all matches as start nodes, from this point forward it will search for all used identifiers in that entry point function and recursively for the functions that are being called. This way a 6000 lines script can be trimmed down to 200 lines, making manual analysis of the initial code possible. In case the entry point function for the malware code turns out to be wrong one, you can set it manually, e.g., here for the function named _iolad7_:
+The very first transpiled layer is the extraction of just the relevant functions which are often buried in > 6000 lines of code. To achieve that, the decoder will search for the typical structure of the entry point function and determine all matched functions as start nodes. That means there might be some false positives, but as long as the actual entry point function is included, it should not be an issue. 
+
+From this point forward it will search for all used identifiers in that entry point function and recursively for the functions that are being called. This way a 6000 lines script can be trimmed down to 200 lines, making manual analysis of the initial code possible. In case the entry point function for the malware code turns out to be the wrong one, you can set it manually, e.g., here for the function named _iolad7_:
 
 `node.exe gootloader_decoder.js -f <sample> -s iolad7`
 
