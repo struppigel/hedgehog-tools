@@ -24,6 +24,11 @@ Note: Some of the layers will be wrapped into a function named _gldr()_. This fu
 
 ## Example Output
 
-![GootLoader Decoder Example Output](gootloader_decoder_output.png)
+Decoded last layer with C2 data:
 
 ![Extracted layer 6](gootloader_decoded_c2layer.png)
+
+Output of unpacking and extraction:
+
+![GootLoader Decoder Example Output](gootloader_decoder_output.png)
+
