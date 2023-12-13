@@ -58,8 +58,9 @@ function main() {
   console.log("\n----------------- Layer 3 -----------------\n");
   const layer3AST = transpileLayer3(layer2AST, gootfile + ".layer3.vir", constant1);
   
-  let c2list = extractC2s(layer3AST);
-  if(c2list.length == 0) { // no c2s found, so we need to unpack layer4 and layer5
+  let ioclist = extractC2s(layer3AST);
+  if(ioclist.length == 0) { // no c2s found, so we need to unpack layer4 to layer6
+    ioclist = extractIoCs(layer3AST);
     console.log("\n----------------- Layer 4 -----------------\n");
     const originalAST = parser.parse(script, {})
     const layer4AST = transpileLayer4(originalAST, layer3AST, gootfile + ".layer4.vir", constant1);
@@ -67,16 +68,57 @@ function main() {
     const [layer5AST, constant2] = transpileLayer5(layer4AST, gootfile + ".layer5.vir");
     console.log("\n----------------- Layer 6 -----------------\n");
     const layer6AST = transpileLayer6(layer5AST, gootfile + ".layer6.vir", constant2);
-    c2list = extractC2s(layer6AST);
+    ioclist = ioclist.concat(extractC2s(layer6AST));
   }
-  console.log("\n------------------ C2s ------------------\n");
-  for(const c2 of c2list){
-    console.log(c2);
+  console.log("\n------------------ IoCs -------------------\n");
+  for(const iocEntry of ioclist){
+    console.log(iocEntry);
   }
-  if(options.c2s && c2list.length > 0) {
+  if(options.c2s && ioclist.length > 0) {
     fs.appendFileSync(options.c2s,c2list.join('\n'));
     console.log('c2s written to ' + options.c2s);
   }
+}
+
+function extractIoCs(AST){
+  let taskVarName = '';
+  let jsFileVarName = '';
+  let logVarName = '';
+
+  const findIoCVarNameVisitor = {
+    MemberExpression(path) {
+      if(path.node.property.value == "GetTask" 
+      && path.parentPath.node.type == "CallExpression"){
+        taskVarName = path.parentPath.node.arguments[0].name;
+      }
+      else if(path.node.property.value == "name" 
+      && path.parentPath.node.type == "AssignmentExpression"){
+        jsFileVarName = path.parentPath.node.right.name;
+      }
+      if(jsFileVarName.length > 0 && taskVarName.length > 0) {
+        path.stop();
+      }
+    },
+    BinaryExpression(path){
+      if(path.node.right.type == "StringLiteral"
+        && path.node.right.value == "\\"
+        && path.parentPath.node.right.type == "Identifier"){
+          logVarName = path.parentPath.node.right.name;
+      }
+    }
+  }
+
+  traverse(AST, findIoCVarNameVisitor);
+  let taskNodes = findAssignmentNodesForNames(AST, [taskVarName]);
+  let taskName = taskNodes[0].right.value;
+  let jsFileNodes = findAssignmentNodesForNames(AST, [jsFileVarName]);
+  let jsFileName = jsFileNodes[0].right.value;
+  let logVarNodes = findAssignmentNodesForNames(AST, [logVarName]);
+  let logName = jsFileNodes[0].right.value;
+
+  return ["scheduled task: " + taskName, 
+          "js file: " + jsFileName, 
+          "log file: " + logName + '\n'];
 }
 
 function extractC2s(layer3AST){
@@ -132,8 +174,14 @@ function transpileLayer4(originalAST, layer3AST, outfile, decodeConstant){
 }
 
 function transpileLayer3(AST, outfile, decodeConstant){
-  const decryptedCodeL3 = decryptCodeLayer3(AST, decodeConstant);
-  const layer3AST = beautifyAndWriteCodeToFile(decryptedCodeL3, outfile);
+  const decryptedCodeL3 = decryptCodeLayer3(AST, decodeConstant);  
+  const layer3AST = parser.parse(decryptedCodeL3);
+  concatStringLiterals(layer3AST); // TODO is this needed??
+  decodeStringsLayer3(layer3AST);
+  const beautifiedCode = generate(layer3AST, beautifyOpts).code;
+  fs.writeFileSync(outfile, beautifiedCode);
+  console.log("the code was saved to " + outfile);
+
   return layer3AST;
 }
 
@@ -158,6 +206,58 @@ function transpileLayer1(AST, options, outfile){
   const codeLayer1 = generate(AST, beautifyOpts).code;
   fs.writeFileSync(outfile, codeLayer1);
   console.log("the code was saved to " + outfile);
+}
+
+/**
+ * Change the AST so that the calls to the string decoding function are replaced with the decoded strings
+ * @param {*} AST 
+ * @returns 
+ */
+function decodeStringsLayer3(AST){
+  // this should get us inside the string decrypt function
+  const stringBlobAssign = extractBiggestStringAssignment(AST);
+  if(stringBlobAssign === undefined) return;
+  // decode all the strings
+  const stringArray = stringBlobAssign.right.value.split('|');
+  let decodedArray = [];
+  for (let strId = 0; strId < stringArray.length; strId++) {
+    let extractedStr = stringArray[strId];
+    for (let i = 0; i <= strId; i++) { 
+      extractedStr = extractedStr.substr(1) + extractedStr.substr(0, 1);
+    }
+    decodedArray[strId] = extractedStr;
+  }
+  const decodeFunctionName = findStringDecoderFunctionNameLayer3(AST, stringBlobAssign);
+  replaceStringDecoderCallsWithStrings(AST, decodedArray, decodeFunctionName);
+}
+
+function findStringDecoderFunctionNameLayer3(AST, stringAssignNode){
+  let name = 'not found';
+  const findStringDecoderFunctionNameVisitor = {
+    AssignmentExpression(path) {
+      if(path.node == stringAssignNode){
+        name = path.parentPath.parentPath.parentPath.node.id.name;
+      }
+    }
+  }
+
+  traverse(AST, findStringDecoderFunctionNameVisitor);
+  return name;
+}
+
+function replaceStringDecoderCallsWithStrings(AST, decodedArray, decodeFunctionName){
+  const findDecodeCallsVisitor = {
+    CallExpression(path) {
+      if(path.node.callee.name == decodeFunctionName 
+        && path.node.arguments.length == 1){
+        strId = path.node.arguments[0].value; // obtain argument
+        replacementNode = types.stringLiteral(decodedArray[strId]);
+        path.replaceWith(replacementNode);
+      }
+    }
+  }
+
+  traverse(AST, findDecodeCallsVisitor);
 }
 
 function insertEncryptionNode(AST, encryptedVarNode){
@@ -486,19 +586,6 @@ function replaceIdentifiersWithStringLiteral(AST, encryptedVarNode){
     return ids;
   }
 
-  function findAssignmentNodesForNames(namesList){
-    const assignmentNodes = [];
-    const findAssignmentNodeVisitor = {
-      AssignmentExpression(path) {
-        if(namesList.includes(path.node.left.name)) {
-            assignmentNodes.push(path.node);
-        }
-      }
-    }
-    traverse(AST,findAssignmentNodeVisitor);
-    return assignmentNodes;
-  }
-
   function buildStringAssignMap(assignNodes){
     const arr = assignNodes.filter((n) => n.type == "AssignmentExpression" && n.right.type == "StringLiteral");
     return new Map(arr.map((n) => [n.left.name, n.right.value]));
@@ -534,7 +621,7 @@ function replaceIdentifiersWithStringLiteral(AST, encryptedVarNode){
     const ids = getIdentifiersFromNodes(nodes);
 
     if(ids.length == 0) return;
-    const assignmentNodes = findAssignmentNodesForNames(ids);
+    const assignmentNodes = findAssignmentNodesForNames(AST, ids);
 
     liftAssignments(assignmentNodes, maxrecursion - 1);
     const strAssignMap = buildStringAssignMap(assignmentNodes);
@@ -545,6 +632,19 @@ function replaceIdentifiersWithStringLiteral(AST, encryptedVarNode){
   }
 
   liftAssignments([encryptedVarNode]);
+}
+
+function findAssignmentNodesForNames(AST, namesList){
+  const assignmentNodes = [];
+  const findAssignmentNodeVisitor = {
+    AssignmentExpression(path) {
+      if(namesList.includes(path.node.left.name)) {
+          assignmentNodes.push(path.node);
+      }
+    }
+  }
+  traverse(AST,findAssignmentNodeVisitor);
+  return assignmentNodes;
 }
 
 /**
