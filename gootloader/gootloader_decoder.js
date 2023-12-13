@@ -12,7 +12,7 @@ const beautifyOpts = {
 }
 
 /**
- * Extracts, unpacks and beautifies 3 layers of GootLoader's JavaScript code 
+ * Extracts, unpacks and beautifies up to 6 layers of GootLoader's JavaScript code 
  * using abstract syntax tree parsing via babel.
  * Extracts the C2s of the final layer and prints them to console.
  * Resulting unpacked code is saved to <sample>.layer[1|2|3|4|5|6].vir
