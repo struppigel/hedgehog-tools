@@ -18,9 +18,9 @@ Execute this to install required packages
 
 ## Usage
 
-`node.exe gootloader_decoder.js -f <sample>`
+`node.exe gootloader_decoder.js -f <sample> --c2s <textfile>`
 
-This will unpack the Gootloader script layers to _transpiled.layer\<nr\>.js_. After that it will attempt to find C2 data. Even if some of it fails, it should serve in saving some unpacking steps.
+This will unpack the Gootloader script layers to _sample.layer\<nr\>.js_. After that it will attempt to find C2 data. Even if some of it fails, it should serve in saving some unpacking steps.
 
 The very first transpiled layer is the extraction of just the relevant functions which are often buried in > 6000 lines of code. To achieve that, the decoder will search for the typical structure of the entry point function and determine all matched functions as start nodes. That means there might be some false positives, but as long as the actual entry point function is included, it should not be an issue. 
 
