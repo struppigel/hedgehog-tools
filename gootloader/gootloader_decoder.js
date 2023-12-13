@@ -12,19 +12,20 @@ const beautifyOpts = {
 }
 
 /**
- * Extracts, unpacks and beautifies up to 6 layers of GootLoader's JScript code 
+ * Extracts, unpacks and beautifies up to 6 layers of GootLoader's JavaScript code 
  * using abstract syntax tree parsing via babel.
  * Extracts the C2s of the final layer and prints them to console.
  * Resulting unpacked code is saved to <sample>.layer[1|2|3|4|5|6].vir
  *
- * Samples: 
+ * Test samples: 
+ * 07253c4ff2a7f296cfdb6c45ddec08f61b6ecad37a30f45455df83d48c193083 --> malpedia sample, complete, has 3 layers
  * 1bc77b013c83b5b075c3d3c403da330178477843fc2d8326d90e495a61fbb01f --> complete, has 3 layers
  * 08f06fc48fe8d69e4ab964500150d1b2f5f4279fea2f76fdfcefd32266dfa1af --> complete, has 6 layers
  * 320b4d99c1f5fbc3cf1dfe593494484b1d4cb1ac7ac1f6266091e85ef51b4508 --> complete, has 6 layers
  * 445a5c6763877994206d2b692214bb4fba04f40a07ccbd28e0422cb1c21ac95b --> complete, has 6 layers
  * cbd826f59f1041065890cfe71f046e59ae0482364f1aaf79e5242de2246fb54b --> complete, has 6 layers
  * b34bcf097ad6ab0459bc6a4a8f487ca3526b6069ec01e8088fd4b00a15420554 --> complete, has 6 layers
- * 1b8b2fbdff9e4109edae317c4dd8cef7bb7877d656e97a3dd0a1e8c0c9d72b0b --> only unpacks until layer 6
+ * 1b8b2fbdff9e4109edae317c4dd8cef7bb7877d656e97a3dd0a1e8c0c9d72b0b --> complete, has 6 layers
  */
 
 if (require.main === module) {
@@ -252,9 +253,15 @@ function decryptCodeLayer3(layer2AST, decodeConstant){
  * @returns decrypted code and extracted decoding constant (for use later)
  */
 function decryptCodeLayer2(layer1AST){
-  const encryptedVarNode = findLayer1EncryptedCodeBuilder(layer1AST);
+  let encryptedVarNode = findLayer1EncryptedCodeBuilder(layer1AST);
+  let encryptedBlob = buildEncryptedString(layer1AST, encryptedVarNode);
+  if(!encryptedBlob){ 
+    // encryptedVarNode was incorrect here, this happens with older gootloader samples where the node 
+    // just gets assigned a big string instead of obfuscating it with many string literals that are built up
+    encryptedVarNode = extractBiggestStringAssignment(layer1AST);
+    encryptedBlob = encryptedVarNode.right.value;
+  }
   console.log('identified encrypted data node: ' + encryptedVarNode.left.name);
-  const encryptedBlob = buildEncryptedString(layer1AST, encryptedVarNode);
   const {key, decodeFunctionName} = extractKeyAndDecodeFunction(layer1AST, encryptedVarNode.left.name);
   console.log('extracted key: ' + key);
   console.log('decode function: ' + decodeFunctionName);
@@ -405,6 +412,31 @@ function extractBiggestStringLiteralValue(AST){
   }
   traverse(AST,findBiggestStringVisitor);
   return str;
+}
+
+/**
+ * Find largest String in an expression of the form: "a = 'string'" and return the node for the assignment
+ * @param {*} AST 
+ * @returns assignment expression node that gets assigned the longest string literal
+ */
+function extractBiggestStringAssignment(AST){
+  let maxstrlen = 0;
+  let node;
+  const findBiggestStringAssignmentVisitor = {
+    AssignmentExpression(path) {
+      if(path.node.right.type == "StringLiteral"
+      && path.node.left.type == "Identifier")
+      {
+        const str = path.node.right.value;
+        if(maxstrlen < str.length) {
+          node = path.node;
+          maxstrlen = str.length;
+        }
+      }
+    }
+  }
+  traverse(AST,findBiggestStringAssignmentVisitor);
+  return node;
 }
 
 /**
