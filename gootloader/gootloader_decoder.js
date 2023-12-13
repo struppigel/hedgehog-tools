@@ -35,9 +35,10 @@ function main() {
 
   commander
     .version('0.1','-v, --version')
-    .usage('node.exe gootloader_decoder.js -f <sample> [-s <startnode>]')
+    .usage('node.exe gootloader_decoder.js -f <sample> [-s <startnode>] [--c2s c2list.txt]')
     .option('-f, --file <value>', 'The file to deobfuscate')
-    .option('-s --start <value>', 'The function name where the malware code starts')
+    .option('-s --start <value>', 'The function name where the malware code starts, use this if the extractor fails to determine it correctly')
+    .option('-c, --c2s <value>', 'Write the extracted C2s to the given text file, C2s will be appended if file exists')
     .parse(process.argv);
 
   const options = commander.opts();
@@ -70,6 +71,10 @@ function main() {
   console.log("\n------------------ C2s ------------------\n");
   for(const c2 of c2list){
     console.log(c2);
+  }
+  if(options.c2s && c2list.length > 0) {
+    fs.appendFileSync(options.c2s,c2list.join('\n'));
+    console.log('c2s written to ' + options.c2s);
   }
 }
 
@@ -212,6 +217,14 @@ function filterAssignmentsNotInFunctionsFromIds(AST, ids, startNodeName){
   return assigns;
 }
 
+/**
+ * Takes code as text and performs beautification of the code, i.e., string literal concatenation and formatting.
+ * Writes the beautified code to the given file.
+ * 
+ * @param {string} code the code as text
+ * @param {string} outfile the output file to write the code to
+ * @returns the AST after beautification
+ */
 function beautifyAndWriteCodeToFile(code, outfile) {
   const ast = parser.parse(code);
   concatStringLiterals(ast);
@@ -224,7 +237,7 @@ function beautifyAndWriteCodeToFile(code, outfile) {
 /**
  * decode and return string representation of the decrypted code from layer 3
  * @param {*} layer2AST 
- * @returns 
+ * @returns the decrypted code wrapped into a function and as a string
  */
 function decryptCodeLayer3(layer2AST, decodeConstant){
   const encryptedBlob = extractBiggestStringLiteralValue(layer2AST);
@@ -236,7 +249,7 @@ function decryptCodeLayer3(layer2AST, decodeConstant){
 /**
  * decrypt and return string representation of the decrypted code from layer 2
  * @param {*} layer1AST 
- * @returns 
+ * @returns decrypted code and extracted decoding constant (for use later)
  */
 function decryptCodeLayer2(layer1AST){
   const encryptedVarNode = findLayer1EncryptedCodeBuilder(layer1AST);
@@ -254,10 +267,22 @@ function decryptCodeLayer2(layer1AST){
   return {'decrypted' : decrypted, 'decodeConstant': idxMax};
 }
 
+/**
+ * Based on the name of the decode function, find and extract the decode constant. 
+ * This is specific to Gootloader and the way it decodes data.
+ * 
+ * @param {*} layer1AST 
+ * @param {*} decodeFunctionName 
+ * @returns 
+ */
 function findDecodeConstant(layer1AST, decodeFunctionName){
   
   let decodeConstant = 0;
 
+  /**
+   * Retrieve the decode constant by checking the right side of the first BinaryExpression with '<' operator
+   * This visitor assumes that we are already in the decode function's scope
+   */
   const getDecodeConstantVisitor = {
     BinaryExpression(path) {
       if(path.node.operator == "<"){
@@ -266,7 +291,10 @@ function findDecodeConstant(layer1AST, decodeFunctionName){
       }
     }
   }
-
+  /**
+   * Determine where the decode function is based on the given decodeFunctionName
+   * Once found, traverse only the function's scope for the decode constant
+   */
   const findDecodeFunctionVisitor = {
     FunctionDeclaration(path) {
       if(path.node.id.name == decodeFunctionName){
@@ -495,29 +523,17 @@ function replaceIdentifiersWithStringLiteral(AST, encryptedVarNode){
  * @param {object} AST the abstract syntax tree
  */
 function concatStringLiterals(AST){
-  const maxTraverse = 2000; 
-  let cnt = 0;
-  let printedWarning = false;
-  const concatStringLiteralsVisitor = {
-    BinaryExpression(path) {
-      if(path.node.left.type == "BinaryExpression" && path.node.right.type == "StringLiteral") {
-          cnt = cnt + 1;
-          if(cnt < maxTraverse) path.traverse(concatStringLiteralsVisitor);
-          else {
-            if(!printedWarning){
-              console.warn('Abort string concat because of max traverse count!');
-              printedWarning = true;
-            }
-            path.stop();
-          }
+  traverse(AST, { 
+        BinaryExpression: {
+        exit: (path) => {
+          if(path.node.left.type == "StringLiteral" && path.node.right.type == "StringLiteral"){
+            const resval = path.node.left.value + path.node.right.value;
+            path.replaceWith(types.stringLiteral(resval));
+          } 
+        }
       }
-      if(path.node.left.type == "StringLiteral" && path.node.right.type == "StringLiteral"){
-        const resval = path.node.left.value + path.node.right.value;
-        path.replaceWith(types.stringLiteral(resval));
-      } 
     }
-  };
-  traverse(AST,concatStringLiteralsVisitor);
+  );
 }
 
 /**
@@ -716,8 +732,8 @@ function findIdentifiersInNode(AST, nodeName){
       }
     }
   }
-  // functions first because we need to keep those nodes instead of assignments to functions
-  traverse(AST, nodeFinderVisitor); 
-  traverse(AST, assignFinderVisitor);
+  // functions first because we need to keep those nodes instead of the assignments to functions
+  traverse(AST, nodeFinderVisitor); // collect identifiers from functions
+  traverse(AST, assignFinderVisitor); // collect identifiers from assignment expressions
   return visitedIds;
 }

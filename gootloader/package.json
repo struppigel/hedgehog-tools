@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/struppigel/hedgehog-tools/issues"
   },
-  "homepage": "https://github.com/struppigel/hedgehog-tools#readme"
+  "homepage": "https://github.com/struppigel/hedgehog-tools#readme",
+  "devDependencies": {
+    "@babel/core": "^7.23.6",
+    "commander": "^11.1.0"
+  }
 }
