@@ -2,6 +2,16 @@
  
 Repo of smaller scripts for malware analysis, deobfuscation and configuration extraction
 
+## Overview
+
+| Target                    | Depends |   Static  | Config extraction | C2 extraction | Deobfuscation | Unpacking | Handles packed sample |
+| ------------------------- | ---------------------- | --- | ----------------- | ------------- | ------------- | --------- | --------------------- |
+| AgentTesla (OriginLogger) | Python, dnlib          |   ✅  | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
+| AllCome                   | Python                 |   ✅  | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
+| GootLoader                | JavaScript, NodeJS     |   ✅  | ✅                | ✅            | ✅            | ✅        | ✅                    |
+| LimeRAT                   | Python, dnlib          |   ✅  | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
+| NightHawk                 | IDAPython              |   ✅  | ⛔                | ⛔            | ✅            | ⛔        | ✅                    |
+
 ## AgentTesla Config Extractor
 
 ### Requirements
