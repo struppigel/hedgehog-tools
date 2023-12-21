@@ -117,7 +117,7 @@ Note: Some of the layers will be wrapped into a function named _gldr()_. This fu
 
 `b34bcf097ad6ab0459bc6a4a8f487ca3526b6069ec01e8088fd4b00a15420554` --> complete, has 6 layers
 
-`1b8b2fbdff9e4109edae317c4dd8cef7bb7877d656e97a3dd0a1e8c0c9d72b0b` --> only unpacks until layer 6
+`1b8b2fbdff9e4109edae317c4dd8cef7bb7877d656e97a3dd0a1e8c0c9d72b0b` --> complete, has 6 layers
 
 ### Example Output
 
