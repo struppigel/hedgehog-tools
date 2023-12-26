@@ -1,4 +1,4 @@
-## NightHawk String Decoder
+# NightHawk String Decoder
 
 IDAPython script that adds comments with decoded string contents into the idb. Needs polishing as it misses some strings.
 
