@@ -129,7 +129,7 @@ function extractIoCs(AST){
   let jsFileNodes = findAssignmentNodesForNames(AST, [jsFileVarName]);
   let jsFileName = jsFileNodes[0].right.value;
   let logVarNodes = findAssignmentNodesForNames(AST, [logVarName]);
-  let logName = jsFileNodes[0].right.value;
+  let logName = logVarNodes[0].right.value;
 
   return ["scheduled task: " + taskName, 
           "js file: " + jsFileName, 
