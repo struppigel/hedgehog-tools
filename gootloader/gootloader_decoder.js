@@ -11,6 +11,11 @@ const beautifyOpts = {
   concise: false,
 }
 
+const settings = {
+  quiet: false,
+  no_dump: false
+}
+
 /**
  * Extracts, unpacks and beautifies up to 6 layers of GootLoader's JavaScript code 
  * using abstract syntax tree parsing via babel.
@@ -40,43 +45,53 @@ function main() {
     .option('-f, --file <value>', 'The file to deobfuscate')
     .option('-s --start <value>', 'The function name where the malware code starts, use this if the extractor fails to determine it correctly')
     .option('-c, --c2s <value>', 'Write the extracted C2s to the given text file, C2s will be appended if file exists')
+    .option('-n, --no_dump', 'Don\'t dump unpacked code')
+    .option('-q, --quiet', 'Only print C2 data, be quiet otherwise')
     .parse(process.argv);
 
   const options = commander.opts();
+  settings.no_dump = options.no_dump;
+  settings.quiet = options.quiet;
   printHints(options);
   if(!options.file) return;
   const gootfile = options.file;
 
-  console.log("\n----------------- Layer 1 -----------------\n");
+  write("\n----------------- Layer 1 -----------------\n");
 
   const script = fs.readFileSync(gootfile, 'utf-8');
   const AST = parser.parse(script, {})
 
   transpileLayer1(AST, options, gootfile + ".layer1.vir");
-  console.log("\n----------------- Layer 2 -----------------\n");
+  write("\n----------------- Layer 2 -----------------\n");
   const [layer2AST, constant1] = transpileLayer2(AST, gootfile + ".layer2.vir");
-  console.log("\n----------------- Layer 3 -----------------\n");
+  write("\n----------------- Layer 3 -----------------\n");
   const layer3AST = transpileLayer3(layer2AST, gootfile + ".layer3.vir", constant1);
   
   let ioclist = extractC2s(layer3AST);
   if(ioclist.length == 0) { // no c2s found, so we need to unpack layer4 to layer6
     ioclist = extractIoCs(layer3AST);
-    console.log("\n----------------- Layer 4 -----------------\n");
+    write("\n----------------- Layer 4 -----------------\n");
     const originalAST = parser.parse(script, {})
     const layer4AST = transpileLayer4(originalAST, layer3AST, gootfile + ".layer4.vir", constant1);
-    console.log("\n----------------- Layer 5 -----------------\n");
+    write("\n----------------- Layer 5 -----------------\n");
     const [layer5AST, constant2] = transpileLayer5(layer4AST, gootfile + ".layer5.vir");
-    console.log("\n----------------- Layer 6 -----------------\n");
+    write("\n----------------- Layer 6 -----------------\n");
     const layer6AST = transpileLayer6(layer5AST, gootfile + ".layer6.vir", constant2);
     ioclist = ioclist.concat(extractC2s(layer6AST));
   }
-  console.log("\n------------------ IoCs -------------------\n");
+  write("\n------------------ IoCs -------------------\n");
   for(const iocEntry of ioclist){
     console.log(iocEntry);
   }
   if(options.c2s && ioclist.length > 0) {
     fs.appendFileSync(options.c2s,c2list.join('\n'));
-    console.log('c2s written to ' + options.c2s);
+    write('c2s written to ' + options.c2s);
+  }
+}
+
+function write(str){
+  if (!settings.quiet) {
+    console.log(str);
   }
 }
 
@@ -133,7 +148,7 @@ function extractC2s(layer3AST){
         do {
           matches = regx.exec(v);
           if (matches) {
-            c2list.push(matches[0]);
+            c2list.push("C2: " + matches[0]);
             found = true;
           }
         } while (matches);
@@ -158,17 +173,15 @@ function transpileLayer5(AST, outfile){
 
 function transpileLayer4(originalAST, layer3AST, outfile, decodeConstant){  
   const encryptedVarNode = findLayer4EncryptedCodeBuilder(layer3AST);
-  console.log('found encryption node: ' + encryptedVarNode.left.name);
+  write('found encryption node: ' + encryptedVarNode.left.name);
   
   //inserting node into old tree to have all the assignment values in one AST
   insertEncryptionNode(originalAST, encryptedVarNode); 
 
   const encryptedBlob = buildEncryptedString(originalAST, encryptedVarNode);
-  //console.log('encryptedBlob: ' + encryptedBlob);
   
   const decoded = gootloaderDecode(encryptedBlob, decodeConstant);
-  console.log("decoded " + decoded.length + " bytes");
-  //console.log(decoded);
+  write("decoded " + decoded.length + " bytes");
 
   return beautifyAndWriteCodeToFile(decoded, outfile);
 }
@@ -179,8 +192,8 @@ function transpileLayer3(AST, outfile, decodeConstant){
   concatStringLiterals(layer3AST); // TODO is this needed??
   decodeStringsLayer3(layer3AST);
   const beautifiedCode = generate(layer3AST, beautifyOpts).code;
-  fs.writeFileSync(outfile, beautifiedCode);
-  console.log("the code was saved to " + outfile);
+  if(!settings.no_dump) fs.writeFileSync(outfile, beautifiedCode);
+  write("the code was saved to " + outfile);
 
   return layer3AST;
 }
@@ -193,19 +206,19 @@ function transpileLayer2(AST, outfile){
 
 function transpileLayer1(AST, options, outfile){
   const startNodes = options.start ? [options.start] : findPotentialStartNodes(AST);
-  console.log('Start nodes found ' + startNodes);
+  write('Start nodes found ' + startNodes);
   const ids = findIdentifiersInNodes(AST, startNodes);
 
   const functionDeclarations = filterFunctionsFromIds(AST, ids);
   const varAssignmentsNotInFunctions = filterAssignmentsNotInFunctionsFromIds(AST, ids, startNodes[0]); 
 
   const functionNames = functionDeclarations.map((f) => f.id.name);
-  console.log('functions found: ' + functionNames);
+  write('functions found: ' + functionNames);
 
   AST.program.body = varAssignmentsNotInFunctions.concat(functionDeclarations); 
   const codeLayer1 = generate(AST, beautifyOpts).code;
-  fs.writeFileSync(outfile, codeLayer1);
-  console.log("the code was saved to " + outfile);
+  if(!settings.no_dump) fs.writeFileSync(outfile, codeLayer1);
+  write("the code was saved to " + outfile);
 }
 
 /**
@@ -330,8 +343,8 @@ function beautifyAndWriteCodeToFile(code, outfile) {
   const ast = parser.parse(code);
   concatStringLiterals(ast);
   const beautifiedCode = generate(ast, beautifyOpts).code;
-  fs.writeFileSync(outfile, beautifiedCode);
-  console.log("the code was saved to " + outfile);
+  if(!settings.no_dump) fs.writeFileSync(outfile, beautifiedCode);
+  write("the code was saved to " + outfile);
   return ast;
 }
 
@@ -361,16 +374,16 @@ function decryptCodeLayer2(layer1AST){
     encryptedVarNode = extractBiggestStringAssignment(layer1AST);
     encryptedBlob = encryptedVarNode.right.value;
   }
-  console.log('identified encrypted data node: ' + encryptedVarNode.left.name);
+  write('identified encrypted data node: ' + encryptedVarNode.left.name);
   const {key, decodeFunctionName} = extractKeyAndDecodeFunction(layer1AST, encryptedVarNode.left.name);
-  console.log('extracted key: ' + key);
-  console.log('decode function: ' + decodeFunctionName);
+  write('extracted key: ' + key);
+  write('decode function: ' + decodeFunctionName);
   const idxMax = findDecodeConstant(layer1AST, decodeFunctionName);
-  console.log('decode constant found ' + idxMax);
+  write('decode constant found ' + idxMax);
   const decoded = gootloaderDecode(encryptedBlob, idxMax)
-  console.log("decoded " + decoded.length + " bytes");
+  write("decoded " + decoded.length + " bytes");
   const decrypted = gootloaderDecrypt(decoded, key).pop();
-  console.log("decrypted " + decrypted.length + " bytes");
+  write("decrypted " + decrypted.length + " bytes");
   return {'decrypted' : decrypted, 'decodeConstant': idxMax};
 }
 
@@ -777,7 +790,7 @@ function printHints(options) {
   }
   
   if(!options.start) {
-    console.log('parser will try to find the starting point, to set another one, use the option -n')
+    write('parser will try to find the starting point, to set another one, use the option -n')
   }
 }
 
