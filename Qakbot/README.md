@@ -10,7 +10,7 @@ Extracts Qakbot configuration data and C2 ips.
 
 terminal:
 
-![screenshot_output.png]
+![screenshot_output.png](screenshot_output.png)
 
 config file: see qbot_configs.txt
 
