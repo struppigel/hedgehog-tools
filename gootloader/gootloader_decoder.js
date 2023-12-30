@@ -31,6 +31,7 @@ const settings = {
  * cbd826f59f1041065890cfe71f046e59ae0482364f1aaf79e5242de2246fb54b --> complete, has 6 layers
  * b34bcf097ad6ab0459bc6a4a8f487ca3526b6069ec01e8088fd4b00a15420554 --> complete, has 6 layers
  * 1b8b2fbdff9e4109edae317c4dd8cef7bb7877d656e97a3dd0a1e8c0c9d72b0b --> complete, has 6 layers
+ * 5fe38a3b92a3c52c9d970a9a589c2210c73de0e0ecbddae71553d2b1724dc281 --> complete, has 6 layers
  */
 
 if (require.main === module) {
@@ -102,12 +103,12 @@ function extractIoCs(AST){
 
   const findIoCVarNameVisitor = {
     MemberExpression(path) {
-      if(path.node.property.value == "GetTask" 
-      && path.parentPath.node.type == "CallExpression"){
+      if(path.node.property.value === "GetTask" 
+      && path.parentPath.node.type === "CallExpression"){
         taskVarName = path.parentPath.node.arguments[0].name;
       }
-      else if(path.node.property.value == "name" 
-      && path.parentPath.node.type == "AssignmentExpression"){
+      else if(path.node.property.value === "name" 
+      && path.parentPath.node.type === "AssignmentExpression"){
         jsFileVarName = path.parentPath.node.right.name;
       }
       if(jsFileVarName.length > 0 && taskVarName.length > 0) {
@@ -115,9 +116,9 @@ function extractIoCs(AST){
       }
     },
     BinaryExpression(path){
-      if(path.node.right.type == "StringLiteral"
-        && path.node.right.value == "\\"
-        && path.parentPath.node.right.type == "Identifier"){
+      if(path.node.right.type === "StringLiteral"
+        && path.node.right.value === "\\"
+        && path.parentPath.node.right.type === "Identifier"){
           logVarName = path.parentPath.node.right.name;
       }
     }
@@ -189,7 +190,7 @@ function transpileLayer4(originalAST, layer3AST, outfile, decodeConstant){
 function transpileLayer3(AST, outfile, decodeConstant){
   const decryptedCodeL3 = decryptCodeLayer3(AST, decodeConstant);  
   const layer3AST = parser.parse(decryptedCodeL3);
-  concatStringLiterals(layer3AST); // TODO is this needed??
+  concatStringLiterals(layer3AST);
   decodeStringsLayer3(layer3AST);
   const beautifiedCode = generate(layer3AST, beautifyOpts).code;
   if(!settings.no_dump) fs.writeFileSync(outfile, beautifiedCode);
@@ -229,7 +230,7 @@ function transpileLayer1(AST, options, outfile){
 function decodeStringsLayer3(AST){
   // this should get us inside the string decrypt function
   const stringBlobAssign = extractBiggestStringAssignment(AST);
-  if(stringBlobAssign === undefined) return;
+  if(stringBlobAssign == undefined) return;
   // decode all the strings
   const stringArray = stringBlobAssign.right.value.split('|');
   let decodedArray = [];
@@ -248,7 +249,7 @@ function findStringDecoderFunctionNameLayer3(AST, stringAssignNode){
   let name = 'not found';
   const findStringDecoderFunctionNameVisitor = {
     AssignmentExpression(path) {
-      if(path.node == stringAssignNode){
+      if(path.node === stringAssignNode){
         name = path.parentPath.parentPath.parentPath.node.id.name;
       }
     }
@@ -261,8 +262,8 @@ function findStringDecoderFunctionNameLayer3(AST, stringAssignNode){
 function replaceStringDecoderCallsWithStrings(AST, decodedArray, decodeFunctionName){
   const findDecodeCallsVisitor = {
     CallExpression(path) {
-      if(path.node.callee.name == decodeFunctionName 
-        && path.node.arguments.length == 1){
+      if(path.node.callee.name === decodeFunctionName 
+        && path.node.arguments.length === 1){
         strId = path.node.arguments[0].value; // obtain argument
         replacementNode = types.stringLiteral(decodedArray[strId]);
         path.replaceWith(replacementNode);
@@ -275,7 +276,7 @@ function replaceStringDecoderCallsWithStrings(AST, decodedArray, decodeFunctionN
 
 function insertEncryptionNode(AST, encryptedVarNode){
   for (const instr of AST.program.body){
-    if(instr.type == "FunctionDeclaration" && instr.body.type == "BlockStatement") {
+    if(instr.type === "FunctionDeclaration" && instr.body.type === "BlockStatement") {
       instr.body.body.push(encryptedVarNode);
       return;
     }
@@ -301,20 +302,20 @@ function filterAssignmentsNotInFunctionsFromIds(AST, ids, startNodeName){
   const assigns = [];
   const findFunctionNodeVisitor = {
     FunctionDeclaration(path) {
-      if(path.node.id.name == startNodeName){
+      if(path.node.id.name === startNodeName){
         
         for(const statement of path.parentPath.node.body){ // search in main body for assignments
-          if(statement.type == "ExpressionStatement" 
-          && statement.expression.type == "AssignmentExpression"
+          if(statement.type === "ExpressionStatement" 
+          && statement.expression.type === "AssignmentExpression"
           && ids.includes(statement.expression.left.name)
           ){
             assigns.push(statement);
           }
           // search also in if statement blocks for assignments, see 08f06fc48fe8d69e4ab964500150d1b2f5f4279fea2f76fdfcefd32266dfa1af
-          if(statement.type == "IfStatement" && statement.consequent.body !== undefined){ 
+          if(statement.type === "IfStatement" && statement.consequent.body !== undefined){ 
             for(const ifbodyNode of statement.consequent.body){
-              if(ifbodyNode.type == "ExpressionStatement" 
-              && ifbodyNode.expression.type == "AssignmentExpression"
+              if(ifbodyNode.type === "ExpressionStatement" 
+              && ifbodyNode.expression.type === "AssignmentExpression"
               && ids.includes(ifbodyNode.expression.left.name)
               ){
                 assigns.push(ifbodyNode);
@@ -348,6 +349,10 @@ function beautifyAndWriteCodeToFile(code, outfile) {
   return ast;
 }
 
+function countInstances(string, word){
+  return string.split(word).length - 1;
+}
+
 /**
  * decode and return string representation of the decrypted code from layer 3
  * @param {*} layer2AST 
@@ -355,7 +360,8 @@ function beautifyAndWriteCodeToFile(code, outfile) {
  */
 function decryptCodeLayer3(layer2AST, decodeConstant){
   const encryptedBlob = extractBiggestStringLiteralValue(layer2AST);
-  const decryptedCode = gootloaderDecode(encryptedBlob, decodeConstant);
+  let decryptedCode = gootloaderDecode(encryptedBlob, decodeConstant);
+  decryptedCode = maybeApplyStringReplace(layer2AST, decryptedCode)
   // wrap into function declaration to allow parsing
   return 'function gldr(){ ' + decryptedCode + ' }'; 
 }
@@ -405,7 +411,7 @@ function findDecodeConstant(layer1AST, decodeFunctionName){
    */
   const getDecodeConstantVisitor = {
     BinaryExpression(path) {
-      if(path.node.operator == "<"){
+      if(path.node.operator === "<"){
         decodeConstant = path.node.right.value;
         path.stop();
       }
@@ -444,8 +450,8 @@ function extractKeyAndDecodeFunction(AST, encryptVarName){
   let decodeFunctionName = '';
   const findKeyVarNameVisitor = {
     CallExpression(path) {
-      if(path.node.arguments.length == 1 
-        && path.node.arguments[0].name == encryptVarName) {
+      if(path.node.arguments.length === 1 
+        && path.node.arguments[0].name === encryptVarName) {
           decodeFunctionName = path.parentPath.node.arguments[0].callee.name;
           keyName = path.parentPath.node.arguments[1].name; // get name of second argument from parent call
           path.stop();
@@ -455,7 +461,7 @@ function extractKeyAndDecodeFunction(AST, encryptVarName){
 
   const findKeyVarContentVisitor = {
     AssignmentExpression(path) {
-      if(path.node.left.name == keyName){
+      if(path.node.left.name === keyName){
         key = path.node.right.value;
         path.stop();
       }
@@ -478,7 +484,7 @@ function gootloaderDecrypt(encryptedStr, key) {
   let offset = 0;
   let keylen = key.length;
   for (let idx = 0; idx <= encryptedStr.length - keylen; idx++) {
-    if (encryptedStr.substr(idx, keylen) == key) {
+    if (encryptedStr.substr(idx, keylen) === key) {
       decrypted[decrypted.length] = encryptedStr.substr(offset, idx - offset);
       offset = idx + keylen;
     }
@@ -509,6 +515,54 @@ function gootloaderDecode(encodedStr, idxMax) {
 }
 
 /**
+ * GootLoader sometimes performs replace operations on the decrypted code
+ * Find out if that is the case and do the same
+ * 
+ * @param {*} layer2AST 
+ * @param {*} decryptedCode 
+ * @returns 
+ */
+function maybeApplyStringReplace(AST, decryptedCode){
+
+  let replRex = undefined
+  let replTxt = undefined
+  
+  const findReplacementArgsVisitor = {
+    // looking for a very specific pattern here to make sure it is the correct replace call
+    // the pattern looks as follows: possible1('?+i?r/a5f ... very long string ...').replace(/\?/g, "'")
+    // might loosen it up if necessary
+    CallExpression(path){
+      const node = path.node;
+      if(
+        node.arguments.length == 2 && 
+        types.isMemberExpression(node.callee) &&
+        types.isCallExpression(node.callee.object) &&
+        node.callee.object.arguments.length == 1 &&
+        types.isStringLiteral(node.callee.object.arguments[0]) &&
+        node.callee.object.arguments[0].value.length > 1000 &&
+        node.callee.property.name === "replace" &&
+        types.isRegExpLiteral(node.arguments[0]) &&
+        types.isStringLiteral(node.arguments[1])
+      ) {
+        const pattern = node.arguments[0].pattern;
+        const flags = node.arguments[0].flags;
+        replRex =  new RegExp(pattern, flags);
+        replTxt = node.arguments[1].value;
+        path.stop();
+      }
+    }
+  };
+
+  traverse(AST, findReplacementArgsVisitor);
+  
+  if(replRex !== undefined && replTxt !== undefined){
+    decryptedCode = decryptedCode.replace(replRex, replTxt);
+  }
+
+  return decryptedCode;
+}
+
+/**
  * Find largest String in a StringLiteral and return it.
  * @param {*} AST 
  * @returns largest string
@@ -522,7 +576,7 @@ function extractBiggestStringLiteralValue(AST){
          str = v;
       }
     }
-  }
+  };
   traverse(AST,findBiggestStringVisitor);
   return str;
 }
@@ -537,8 +591,8 @@ function extractBiggestStringAssignment(AST){
   let node;
   const findBiggestStringAssignmentVisitor = {
     AssignmentExpression(path) {
-      if(path.node.right.type == "StringLiteral"
-      && path.node.left.type == "Identifier")
+      if(path.node.right.type === "StringLiteral"
+      && path.node.left.type === "Identifier")
       {
         const str = path.node.right.value;
         if(maxstrlen < str.length) {
@@ -563,7 +617,7 @@ function extractBiggestStringAssignment(AST){
 function buildEncryptedString(AST, encryptedVarNode) {
   // this call will change AST so that the encryptedVarNode will be assigned a single StringLiteral
   replaceIdentifiersWithStringLiteral(AST, encryptedVarNode);
-  if(encryptedVarNode.right.type == "CallExpression") return encryptedVarNode.right.arguments[0].value;
+  if(encryptedVarNode.right.type === "CallExpression") return encryptedVarNode.right.arguments[0].value;
   // here the encryptedVarNode is assumed to be an AssigmentExpression, 
   // which means the right side of the assignment operation contains the string
   return encryptedVarNode.right.value;
@@ -582,10 +636,10 @@ function buildEncryptedString(AST, encryptedVarNode) {
 function replaceIdentifiersWithStringLiteral(AST, encryptedVarNode){
 
   function getIdentifiersFromNode(node){
-    if(node.type == "AssignmentExpression") return getIdentifiersFromNode(node.right);
-    else if (node.type == "CallExpression" && node.arguments.length > 0) return getIdentifiersFromNode(node.arguments[0]);
-    else if(node.type == "Identifier") return [node.name];
-    else if(node.type == "BinaryExpression") {
+    if(node.type === "AssignmentExpression") return getIdentifiersFromNode(node.right);
+    else if (node.type === "CallExpression" && node.arguments.length > 0) return getIdentifiersFromNode(node.arguments[0]);
+    else if(node.type === "Identifier") return [node.name];
+    else if(node.type === "BinaryExpression") {
       return getIdentifiersFromNode(node.left).concat(getIdentifiersFromNode(node.right));
     }
     else return [];
@@ -600,7 +654,7 @@ function replaceIdentifiersWithStringLiteral(AST, encryptedVarNode){
   }
 
   function buildStringAssignMap(assignNodes){
-    const arr = assignNodes.filter((n) => n.type == "AssignmentExpression" && n.right.type == "StringLiteral");
+    const arr = assignNodes.filter((n) => n.type === "AssignmentExpression" && n.right.type === "StringLiteral");
     return new Map(arr.map((n) => [n.left.name, n.right.value]));
   }
 
@@ -608,7 +662,7 @@ function replaceIdentifiersWithStringLiteral(AST, encryptedVarNode){
   function deleteStringAssignmentNodes(nodes){
     const delStringAssignmentsVisitor = {
       AssignmentExpression(path){
-        if(path.node.right.type == "StringLiteral" && nodes.includes(path.node)) {
+        if(path.node.right.type === "StringLiteral" && nodes.includes(path.node)) {
           path.remove();
         }
       }
@@ -671,7 +725,7 @@ function concatStringLiterals(AST){
   traverse(AST, { 
         BinaryExpression: {
         exit: (path) => {
-          if(path.node.left.type == "StringLiteral" && path.node.right.type == "StringLiteral"){
+          if(path.node.left.type === "StringLiteral" && path.node.right.type === "StringLiteral"){
             const resval = path.node.left.value + path.node.right.value;
             path.replaceWith(types.stringLiteral(resval));
           } 
@@ -692,17 +746,17 @@ function findLayer4EncryptedCodeBuilder(AST) {
   let maxCount = -1;
 
   function countBinaryExpressionChainWithIdentifiers(node){
-    if(node.left.type == "BinaryExpression"
-    && node.right.type == "Identifier") {
+    if(node.left.type === "BinaryExpression"
+    && node.right.type === "Identifier") {
       return 1 + countBinaryExpressionChainWithIdentifiers(node.left);
     } else return 0;
   }
 
   let findEncryptedCodeBuilderVisitor = {
     AssignmentExpression(path) {
-      if(path.node.right.type == "CallExpression" 
+      if(path.node.right.type === "CallExpression" 
       && path.node.right.arguments.length == 1 
-      && path.node.right.arguments[0].type == "BinaryExpression" 
+      && path.node.right.arguments[0].type === "BinaryExpression" 
       ) {
         let cnt = countBinaryExpressionChainWithIdentifiers(path.node.right.arguments[0]);
         if(cnt > maxCount) { 
@@ -727,16 +781,16 @@ function findLayer1EncryptedCodeBuilder(AST) {
   let maxCount = -1;
 
   function countBinaryExpressionChainWithIdentifiers(node){
-    if(node.left.type == "BinaryExpression"
-    && node.right.type == "Identifier") {
+    if(node.left.type === "BinaryExpression"
+    && node.right.type === "Identifier") {
       return 1 + countBinaryExpressionChainWithIdentifiers(node.left);
     } else return 0;
   }
 
   let findEncryptedCodeBuilderVisitor = {
     AssignmentExpression(path) {
-      if(path.node.right.type == "BinaryExpression" 
-      && path.node.right.right.type == "Identifier" ) {
+      if(path.node.right.type === "BinaryExpression" 
+      && path.node.right.right.type === "Identifier" ) {
         let cnt = countBinaryExpressionChainWithIdentifiers(path.node.right);
         if(cnt > maxCount) { 
           maxCount = cnt;
@@ -762,7 +816,7 @@ function findPotentialStartNodes(AST){
     CallExpression(path) {
       if(
         path.node.arguments.length == 1                     // exactly one argument
-        && path.node.arguments[0].type == 'NumericLiteral'  // argument is a numeric literal
+        && path.node.arguments[0].type === 'NumericLiteral'  // argument is a numeric literal
         && typeof path.node.callee.name !== 'undefined'     // function has a name
         ) {
           let name = path.node.callee.name;
@@ -807,13 +861,13 @@ function findIdentifiersInNodes(AST, nodeNameList, ignoreList = [], maxdepth = 5
   for (let currNode of nodeNameList) {
     if(!ignoreList.includes(currNode)){
       let foundNodes = findIdentifiersInNode(AST, currNode);
-      if(typeof foundNodes === 'undefined' || foundNodes.length == 0) continue;
+      if(typeof foundNodes == 'undefined' || foundNodes.length === 0) continue;
       identifiers = identifiers.concat(foundNodes);
       ignoreList.push(currNode);
     } 
   }
-  if (identifiers.length == 0) return [];
-  if (maxdepth == 0) {
+  if (identifiers.length === 0) return [];
+  if (maxdepth === 0) {
     console.warn('max recursion depth reached!');
     return identifiers;
   }
@@ -861,7 +915,7 @@ function findIdentifiersInNode(AST, nodeName){
 
   const nodeFinderVisitor = {
     FunctionDeclaration(path){
-      if(path.node.id.name == nodeName){
+      if(path.node.id.name === nodeName){
         const { scope, node } = path
         scope.traverse(node, collectIdentifiersVisitor, this);
         path.stop();
@@ -870,7 +924,7 @@ function findIdentifiersInNode(AST, nodeName){
   }
   const assignFinderVisitor = {
   AssignmentExpression(path){
-      if(path.node.left.name == nodeName){
+      if(path.node.left.name === nodeName){
         const { scope, node } = path
         scope.traverse(node, collectIdentifiersVisitor, this);
         path.stop();
