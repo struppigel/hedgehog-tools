@@ -40,6 +40,7 @@ def sha256sum(filename):
 # decrypt qbot strings
 def decipher_strings(data: bytes, key: bytes):
    result = []
+   if len(key) == 0 or len(data) == 0: return []
    current_string = list()
    for i in range(len(data)):
        current_string.append(data[i] ^ key[i % len(key)])
@@ -119,20 +120,24 @@ def extract_str_table_data(afile, data_addr, data_size):
 # code partially by https://github.com/OALabs/Lab-Notes/blob/main/Qakbot/qakbot.ipynb
 def get_resources(afile):
     resource_data = []
-    with open(afile, 'rb') as f:
-        data = f.read()
-        pe = pefile.PE(data=data)
+    try:
+        with open(afile, 'rb') as f:
+            data = f.read()
+            pe = pefile.PE(data=data)
 
-        rt_string_idx = [
-                entry.id for entry in 
-                pe.DIRECTORY_ENTRY_RESOURCE.entries
-            ].index(pefile.RESOURCE_TYPE['RT_RCDATA'])
-        rt_string_directory = pe.DIRECTORY_ENTRY_RESOURCE.entries[rt_string_idx]
-        
-        for entry in rt_string_directory.directory.entries:
-            data_rva = entry.directory.entries[0].data.struct.OffsetToData
-            size = entry.directory.entries[0].data.struct.Size
-            resource_data.append(pe.get_memory_mapped_image()[data_rva:data_rva+size])
+            rt_string_idx = [
+                    entry.id for entry in 
+                    pe.DIRECTORY_ENTRY_RESOURCE.entries
+                ].index(pefile.RESOURCE_TYPE['RT_RCDATA'])
+            rt_string_directory = pe.DIRECTORY_ENTRY_RESOURCE.entries[rt_string_idx]
+            
+            for entry in rt_string_directory.directory.entries:
+                data_rva = entry.directory.entries[0].data.struct.OffsetToData
+                size = entry.directory.entries[0].data.struct.Size
+                resource_data.append(pe.get_memory_mapped_image()[data_rva:data_rva+size])
+    except:
+        write("an error with resource extraction occured!")
+        return []
     return resource_data
 
 # code by https://github.com/OALabs/Lab-Notes/blob/main/Qakbot/qakbot.ipynb
@@ -190,9 +195,34 @@ def main_string_lookup(afile):
         write("table size: " + hex(info.size))
         
         str_key = extract_str_table_key(afile, info.key)
+        if str_key == []: continue
         strtable = extract_str_table_data(afile, info.data, info.size)
         strings_decrypted = decipher_strings(strtable, str_key)
         print_string_lookup(strings_decrypted)
+
+# extracts and decrypts QBots string tables and returns a list of dictionaries, one dict for each string table in the sample
+# the key is the string translation and the value is the decrypted string
+def get_string_lookup_dicts(afile):
+    decrypt_info = extract_decryption_data(afile)
+    result_dicts = []
+    for info in decrypt_info:
+        str_key = extract_str_table_key(afile, info.key)
+        if str_key == []: continue
+        strtable = extract_str_table_data(afile, info.data, info.size)
+        str_list = decipher_strings(strtable, str_key)
+        # this is used to count the offsets properly, using the escaped version would result in wrong offsets
+        strings = [b.decode('latin1') for b in str_list]
+        # looks weird but will put the output string into a format that can be used as string in Python code
+        # even if there are multiline strings or quotes in the decrypted strings
+        strings_escaped = [b.decode('latin1').encode('unicode_escape').decode('latin1').replace("'","\\'") for b in str_list]
+        curr_idx = 0
+        table_dict = dict()
+        for idx, s in enumerate(strings):
+            table_dict[curr_idx] = strings_escaped[idx]
+            curr_idx += len(s)
+        if len(table_dict) > 0: result_dicts.append(table_dict)
+    return result_dicts
+        
 
 # returns potential keys for configuration decryption
 # the potential keys are determined by decrypting strings in the string table
@@ -206,6 +236,7 @@ def collect_config_keys(afile):
         write("table size: " + hex(info.size))
         
         str_key = extract_str_table_key(afile, info.key)
+        if str_key == []: continue
         strtable = extract_str_table_data(afile, info.data, info.size)
         strings_decrypted = decipher_strings(strtable, str_key)
         write("decrypted strings from table " + str(len(strings_decrypted)) + "\n")
@@ -278,8 +309,8 @@ def decode_config(data):
 def extract_config(afile):
     resources = get_resources(afile)
     decrypted_blobs = []
-
-    for key_string in collect_config_keys(afile):
+    config_key_candidates = collect_config_keys(afile)
+    for key_string in config_key_candidates:
         #print(key_string.decode('latin1'))
         if len(key_string) <= 1: continue
         m = hashlib.sha1()
@@ -295,6 +326,7 @@ def extract_config(afile):
                 write("config key " + key_string.decode('latin1') + "\n")
                 decrypted_blobs.append(data)
     write("successfully decrypted data blobs " + str(len(decrypted_blobs)))
+    if decrypted_blobs == []: return ""
     smallest_blob = functools.reduce(lambda a, b: a if len(a) < len(b) else b, decrypted_blobs)
     biggest_blob = functools.reduce(lambda a, b: a if len(a) > len(b) else b, decrypted_blobs)
     ips = extract_ips(biggest_blob)
@@ -305,7 +337,7 @@ def extract_config(afile):
     if config:
         config_str += dict_to_string(config) + "\n"
     else: write("given data blob was not a config")
-    config_str += "ips:" + ", ".join(ips)
+    config_str += "ips:" + ", ".join(ips) + "\n"
     return config_str
 
 # -f option
