@@ -61,7 +61,7 @@ function printHints(options) {
   }
 
 function extractFunctionsAndAssignmentsNotInFunctions(AST, options){
-    const startNodes = options.start;
+    const startNodes = [options.start];
     console.log('Start function ' + startNodes);
     const ids = findIdentifiersInNodes(AST, startNodes);
   
