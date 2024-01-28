@@ -61,7 +61,7 @@ def extract_config_from_sample(sample):
     return None
 
 def main():
-    parser = argparse.ArgumentParser(description='QBot config extractor and string decrypter')
+    parser = argparse.ArgumentParser(description='AgentTesla config extractor')
     parser.add_argument('path', help='file or folder to decode')
     args = parser.parse_args()
     path = args.path
