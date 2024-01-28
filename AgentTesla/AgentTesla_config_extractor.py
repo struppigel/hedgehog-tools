@@ -3,13 +3,15 @@
 # Extract config of AgentTesla, OriginLogger variant
 
 import os
-import shutil
 import sys
-import subprocess
 import clr
+import argparse
 import traceback
 from hashlib import sha256
-clr.AddReference(r"dnlib.dll")
+import pathlib
+
+curr_dir = pathlib.Path(__file__).parent.resolve()
+clr.AddReference(os.path.join(curr_dir, "dnlib.dll"))
 
 import dnlib
 from dnlib.DotNet import *
@@ -50,18 +52,34 @@ def defang(txt):
 def write_config_to_file(config, out_file):
     with open(out_file, 'a', encoding='utf-8') as f:
         f.write("------------------------------------------\n\n" + defang(config) + "\n")
+        
+def extract_config_from_sample(sample):
+    config = extract_config(sample)
+    if len(config.strip()) > 0:
+        write_config_to_file(config, 'agenttesla_configs.txt')
+        return config
+    return None
 
-def main(folder):
-    if folder.endswith('\\'): 
-        folder = folder[:-1]
-
+def main():
+    parser = argparse.ArgumentParser(description='QBot config extractor and string decrypter')
+    parser.add_argument('path', help='file or folder to decode')
+    args = parser.parse_args()
+    path = args.path
     configs = []
-    for directory, subdirs, files in os.walk(folder):
-        for pfile in files:
-            config = extract_config(os.path.join(directory, pfile))
-            if len(config.strip()) > 0: 
-                configs.append(config)
-                write_config_to_file(config, 'agenttesla_configs.txt')
+    
+    if os.path.isfile(path):
+        afile = path
+        config = extract_config_from_sample(afile)
+        if config: configs.append(config)
+    elif os.path.isdir(path):
+        folder = path
+        for directory, subdirs, files in os.walk(folder):
+            for pfile in files:
+                config = extract_config_from_sample(os.path.join(directory, pfile))
+                if config: configs.append(config)
+    else:
+        sys.stderr.write("Error: given path is not a directory nor a file")
+        sys.exit(1)
 
     for config in configs:
         print()
@@ -72,7 +90,4 @@ def main(folder):
     print('Configs extracted: ' + str(len(configs)))
 
 if __name__ == '__main__':
-    if len(sys.argv) == 0:
-        print("please provide a folder name")
-    else:
-        main(sys.argv[1])
+    main()
