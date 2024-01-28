@@ -19,3 +19,9 @@ Configs will be placed or appended to a file named agenttesla_configs.txt
 For sample hashes look at the extracted configs.
 
 Works on non-packed samples, so use unpacme or similar before applying the extractor.
+
+## handling System.NotSupportedException
+
+If you get System.NotSupportedException because of the dnlib.dll, you need to remove the ZoneIdentifier from dnlib.dll.
+
+Open the Properties of dnlib.dll and add a checkmark to `Unblock` and click `OK`.
