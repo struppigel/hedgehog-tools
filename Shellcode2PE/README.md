@@ -8,13 +8,13 @@ The resulting PE will have disabled ASLR and the shellcode at the entry point.
 usage 32-bit:
 
 ```
-shellcode_to_pe.py win32 C:\shellcode_file
+python shellcode_to_pe.py win32 C:\shellcode_file
 ```
 
 usage 64-bit:
 
 ```
-shellcode_to_pe.py win64 C:\shellcode_file
+python shellcode_to_pe.py win64 C:\shellcode_file
 ```
 
 ## Limitations
