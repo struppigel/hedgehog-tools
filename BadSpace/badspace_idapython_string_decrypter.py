@@ -1,4 +1,5 @@
-# This script decrypts the strings of BadSpace and applies comments with the decrypted strings to decompilation.
+# This script determins the decrypt functions, renames them accordingly, decrypts the strings of BadSpace and 
+# applies comments with the decrypted strings to decompilation.
 # Requirements: hexrays decompiler available, encrypted strings are in ".data" or ".rdata" section
 #
 # sample: 6a195e6111c9a4b8c874d51937b53cd5b4b78efc32f7bb255012d05087586d8f
@@ -62,6 +63,8 @@ def set_comment(address, comment):
 
 # finds potential decrypt calls and decrypt
 def find_call_and_decrypt(cfunc):
+    decrypt_functions = set()
+    
     class my_call_visitor(ida_hexrays.ctree_visitor_t):
         
         def __init__(self):
@@ -89,18 +92,30 @@ def find_call_and_decrypt(cfunc):
                     print("call arg found at 0x%x with data addr 0x%x" % (arg1.ea, encrypted_data_addr))
                     print("decrypted", decrypted)
                     set_comment(arg1.ea, decrypted)
+                    decrypt_functions.add(called.obj_ea)
                     idc.set_name(encrypted_data_addr, decrypted, idaapi.SN_FORCE)
             return 0 # continue traversal
     v = my_call_visitor()
     v.apply_to(cfunc.body, None)
+    return decrypt_functions
 
+def rename_and_print_functions(funs, basename):
+    for ea in funs:
+        idaapi.set_name(ea, basename, idaapi.SN_FORCE)
+        print("%s: %s" % (hex(ea), get_name(ea)))
+
+if __name__ == "__main__":
+    if not idaapi.init_hexrays_plugin():   
+        sys.exit()     
         
-if not idaapi.init_hexrays_plugin():   
-    sys.exit()     
-    
-# iterate all functions in all segments
-for segea in idautils.Segments():
-    for func_ea in idautils.Functions(segea, get_segm_end(segea)):
-        cfunc = idaapi.decompile(func_ea)
-        find_call_and_decrypt(cfunc)
-print("done")
+    decrypt_functions = set()
+    # iterate all functions in all segments
+    for segea in idautils.Segments():
+        for func_ea in idautils.Functions(segea, get_segm_end(segea)):
+            cfunc = idaapi.decompile(func_ea)
+            decrypt_functions.update(find_call_and_decrypt(cfunc))
+            
+    print("decrypt functions found and renamed")
+    rename_and_print_functions(decrypt_functions, "mlw_string_decrypt")
+        
+    print("done")
