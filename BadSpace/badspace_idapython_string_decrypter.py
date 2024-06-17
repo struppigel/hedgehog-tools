@@ -1,4 +1,4 @@
-# This script determins the decrypt functions, renames them accordingly, decrypts the strings of BadSpace and 
+# This script determines the decrypt functions, renames them accordingly, decrypts the strings of BadSpace and 
 # applies comments with the decrypted strings to decompilation.
 # Requirements: hexrays decompiler available, encrypted strings are in ".data" or ".rdata" section
 #
