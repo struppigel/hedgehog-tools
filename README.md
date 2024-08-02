@@ -13,7 +13,7 @@ Repo of smaller scripts for malware analysis, deobfuscation and configuration ex
 | GootLoader                | JavaScript, NodeJS     |   ✅   | ✅                | ✅            | ✅            | ✅        | ✅                    |
 | LimeRAT                   | Python, dnlib          |   ✅   | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
 | NightHawk                 | IDAPython              |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ✅                    |
-| PrivateLoader             | IDAPython              |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ✅                    |
+| PrivateLoader             | IDAPython              |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
 | Qakbot                    | Python                 |   ✅   | ✅                | ✅            | ✅            | ⛔        | ⛔                    |
 | XWormRAT                  | Python, dnlib          |   ✅   | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
 
