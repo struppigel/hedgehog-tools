@@ -2,7 +2,7 @@
 # Supported options: Native 32-Bit stub with RunPE shellcode 
 # This is a PoC for a course. Compression option is not handled nor did I test different paddings.
 #
-# Requirement: Mandiant's speakeasy https://github.com/mandiant/speakeasy
+# Requirement: Mandiants speakeasy https://github.com/mandiant/speakeasy
 # Author: Karsten Hahn @ GDATA CyberDefense
 
 import argparse
