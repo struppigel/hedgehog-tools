@@ -1,4 +1,4 @@
-# Unpacks sample packed with PEUnion ()https://github.com/bytecode77/pe-union/ 
+# Unpacks sample packed with PEUnion https://github.com/bytecode77/pe-union/ 
 # Supported options: Native 32-Bit stub with RunPE shellcode 
 # This is a PoC for a course. Compression option is not handled nor did I test different paddings.
 #
