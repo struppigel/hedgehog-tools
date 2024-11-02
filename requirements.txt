@@ -1,2 +1,0 @@
-pythonnet>=3.0.3
-pefile>=2023.2.7
