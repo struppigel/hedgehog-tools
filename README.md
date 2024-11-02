@@ -9,9 +9,10 @@ Repo of smaller scripts for malware analysis, deobfuscation and configuration ex
 | AgentTesla (OriginLogger) | Python, dnlib          |   ✅   | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
 | AllCome                   | Python                 |   ✅   | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
 | BadSpace                  | IDAPython, HexRays decompiler  |   ✅   | ⛔        | ⛔            | ✅            | ⛔        | ⛔                    |
-| CobaltStrike              | Python, Ghidra, Jython  |   ✅  | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
+| CobaltStrike              | Python, Ghidra, Jython |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
 | GootLoader                | JavaScript, NodeJS     |   ✅   | ✅                | ✅            | ✅            | ✅        | ✅                    |
 | LimeRAT                   | Python, dnlib          |   ✅   | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
+| LummaStealer              | Ghidra, Jython         |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
 | NightHawk                 | IDAPython              |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ✅                    |
 | PEUnion                   | Python, Speakeasy      |   ✅   | ⛔                | ⛔            | ⛔            | ✅        | ✅                    |
 | PrivateLoader             | IDAPython              |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
