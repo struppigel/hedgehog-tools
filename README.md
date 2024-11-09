@@ -8,19 +8,22 @@ Repo of smaller scripts for malware analysis, deobfuscation and configuration ex
 | ------------------------- | ---------------------- | ------ | ----------------- | ------------- | ------------- | --------- | --------------------- |
 | AgentTesla (OriginLogger) | Python, dnlib          |   ✅   | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
 | AllCome                   | Python                 |   ✅   | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
-| BadSpace                  | IDAPython, HexRays decompiler  |   ✅   | ⛔        | ⛔            | ✅            | ⛔        | ⛔                    |
+| BadSpace                  | IDAPython (IDA 8), HexRays decompiler  |   ✅   | ⛔        | ⛔            | ✅            | ⛔        | ⛔                    |
 | CobaltStrike              | Python, Ghidra, Jython |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
+| Dave                      | IDAPython (IDA 9)      |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
 | GootLoader                | JavaScript, NodeJS     |   ✅   | ✅                | ✅            | ✅            | ✅        | ✅                    |
 | LimeRAT                   | Python, dnlib          |   ✅   | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
 | LummaStealer              | Ghidra, Jython         |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
-| NightHawk                 | IDAPython              |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ✅                    |
+| NightHawk                 | IDAPython (IDA 8)      |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ✅                    |
 | PEUnion                   | Python, Speakeasy      |   ✅   | ⛔                | ⛔            | ⛔            | ✅        | ✅                    |
-| PrivateLoader             | IDAPython              |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
+| PrivateLoader             | IDAPython (IDA 8)      |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
 | Qakbot                    | Python                 |   ✅   | ✅                | ✅            | ✅            | ⛔        | ⛔                    |
 | XWormRAT                  | Python, dnlib          |   ✅   | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
 
 Additionally there is a folder called **ECMAScript helpers** with generic scripts for deobfuscation of JScript, JavaScript and similar.
 
 **Shellcode2PE** converts a shellcode to a Portable Executable file with the shellcode at the entry point and ASLR disabled.
+
+**Python helper scripts** contains generic helpers like export function extractors.
 
 See README.md files within the folders for more.
