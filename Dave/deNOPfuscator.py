@@ -9,7 +9,7 @@ import ida_ua
 # removes superfluous NOP instructions; place the cursor on the start of the function that has NOPs
 #
 # testfile d982401b64ae312363fafadcfdedabdd7c13ad89651767c5c6bc0fef03f63fb4
-# only used this for one file so far, so there might be edge cases I am missing
+# only used this for one file so far, some cases are missing when adjusting the addresses
 
 def instruction_has_relative_address(ea):
     insn = DecodeInstruction(ea)
@@ -72,10 +72,8 @@ def deobfuscate(func_ea):
 def change_function_size(func_ea, new_end_ea):
     if idc.set_func_end(func_ea, new_end_ea):
         print(f"Function size updated. New end address: {new_end_ea:#X}")
-        return True
     else:
         print("Failed to update function size.")
-        return False
 
 def patch_database(func_ea, instructions):
     func_end = idc.get_func_attr(func_ea, idc.FUNCATTR_END)
