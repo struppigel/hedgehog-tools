@@ -307,8 +307,6 @@ public class PropagateExternalParametersX64 extends GhidraScript {
 									+ params[i].getName() + " for " + extFuncName);
 							addResult(params[i].getName(), params[i].getDataType(), cu.getMinAddress(), extFuncName);
 							index++;
-						} else {
-							println();
 						}
 					}
 				}
