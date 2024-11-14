@@ -62,9 +62,10 @@ public class PropagateExternalParametersX64 extends GhidraScript {
 			}
 		}
 
-		// use the 'results' to propagate param info to the local variables, data, and
-		// params of
-		// the calling function
+		/*
+		 * use the 'results' to propagate param info to the local variables, data, and
+		 * params of the calling function
+		 */
 		for (int i = 0; i < results.size(); i++) {
 			PushedParamInfo ppi = results.get(i);
 			Instruction instr = listing.getInstructionAt(ppi.getAddress());
@@ -74,8 +75,10 @@ public class PropagateExternalParametersX64 extends GhidraScript {
 				continue;
 			}
 
-			// If operand of pushed parameter points to data make a symbol and comment at
-			// that location
+			/*
+			 * If operand of pushed parameter points to data make a symbol and comment at
+			 * that location
+			 */
 			if (((opType & OperandType.ADDRESS) != 0) && (((opType & OperandType.DATA) != 0))
 					|| ((opType & OperandType.SCALAR) != 0) || ((opType & OperandType.DYNAMIC) != 0)) {
 				Reference[] refs = listing.getCodeUnitAt(ppi.getAddress()).getOperandReferences(0);
@@ -175,12 +178,25 @@ public class PropagateExternalParametersX64 extends GhidraScript {
 
 	/*
 	 * Function to skip the parameters of a call that is in the middle of the
-	 * parameters I am trying to populate. For example: PUSH arg 4 to call func1 ;
-	 * put arg 4 of func1 here PUSH arg 3 to call func1 ; put arg 3 of func1 here
-	 * PUSH arg 3 to call func2 ---| PUSH arg 2 to call func2 | PUSH arg 1 to call
-	 * func2 | -- want to bypass these CALL func2 ___| PUSH arg 2 to call func1 ;
-	 * put arg2 of func1 here PUSH arg 1 to call func1 ; put arg1 of func1 here CALL
-	 * func1
+	 * parameters I am trying to populate. For example:
+	 * 
+	 * PUSH arg 4 to call func1 ;put arg 4 of func1 here
+	 * 
+	 * PUSH arg 3 to call func1 ; put arg 3 of func1 here
+	 * 
+	 * PUSH arg 3 to call func2 ---|
+	 * 
+	 * PUSH arg 2 to call func2 |
+	 * 
+	 * PUSH arg 1 to call func2 | -- want to bypass these
+	 * 
+	 * CALL func2 ___|
+	 * 
+	 * PUSH arg 2 to call func1 ; put arg2 of func1 here
+	 * 
+	 * PUSH arg 1 to call func1 ; put arg1 of func1 here
+	 * 
+	 * CALL func1
 	 */
 
 	// get the number of pushes for a code unit if it is a call
@@ -309,16 +325,19 @@ public class PropagateExternalParametersX64 extends GhidraScript {
 		while (cuIt.hasNext() && (index < params.length) && !hasBranch) {
 			CodeUnit cu = cuIt.next();
 
-			// need to take into account calls between the pushes and skip the pushes for
-			// those calls
-			// skip pushes that are used for another call
-
-			// if label, then probably a branch, allow current push to be commented and
-			// next time through stop
-			// can also be a branch if not label there but this case should still have
-			// parameters set
-			// before it as long as not an unconditional jump - this wouldn't make sense so
-			// it shouldn't happen
+			/*
+			 * need to take into account calls between the pushes and skip the pushes for
+			 * those calls. skip pushes that are used for another call.
+			 * 
+			 * if label, then probably a branch, allow current push to be commented and next
+			 * time through stop.
+			 * 
+			 * can also be a branch if not label there but this case should still have
+			 * parameters set
+			 * 
+			 * before it as long as not an unconditional jump - this wouldn't make sense so
+			 * it shouldn't happen
+			 */
 
 			if (cu.getLabel() != null) {
 				hasBranch = true;
@@ -382,8 +401,10 @@ public class PropagateExternalParametersX64 extends GhidraScript {
 		results.add(param);
 	}
 
-	// info about the pushed parameter that gets applied to the calling functions
-	// params and locals and referenced data
+	/*
+	 * info about the pushed parameter that gets applied to the calling functions
+	 * params and locals and referenced data
+	 */
 	private class PushedParamInfo {
 		private String name;
 		private DataType dataType;
