@@ -15,6 +15,7 @@ Repo of smaller scripts for malware analysis, deobfuscation and configuration ex
 | LimeRAT                   | Python, dnlib          |   ✅   | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
 | LummaStealer              | Ghidra, Jython         |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
 | NightHawk                 | IDAPython (IDA 8)      |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ✅                    |
+| Nuitka                    | Python                 |   ✅   | ⛔                | ⛔            | ⛔            | ⛔        | ✅                    |
 | PEUnion                   | Python, Speakeasy      |   ✅   | ⛔                | ⛔            | ⛔            | ✅        | ✅                    |
 | PrivateLoader             | IDAPython (IDA 8)      |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
 | Qakbot                    | Python                 |   ✅   | ✅                | ✅            | ✅            | ⛔        | ⛔                    |
