@@ -8,7 +8,8 @@ Repo of smaller scripts for malware analysis, deobfuscation and configuration ex
 | ------------------------- | ---------------------- | ------ | ----------------- | ------------- | ------------- | --------- | --------------------- |
 | AgentTesla (OriginLogger) | Python, dnlib          |   ✅   | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
 | AllCome                   | Python                 |   ✅   | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
-| BadSpace                  | IDAPython (IDA 8), HexRays decompiler  |   ✅   | ⛔        | ⛔            | ✅            | ⛔        | ⛔                    |
+| BadSpace  | IDAPython (IDA 8), HexRays decompiler  |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
+| BeamNG Mod Malware        | Ghidra, Jython         |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
 | CobaltStrike              | Python, Ghidra, Jython |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
 | Dave                      | IDAPython (IDA 9)      |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
 | GootLoader                | JavaScript, NodeJS     |   ✅   | ✅                | ✅            | ✅            | ✅        | ✅                    |
