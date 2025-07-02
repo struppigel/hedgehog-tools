@@ -302,7 +302,7 @@ def process_folder(folder_path, output_base):
 
 if __name__ == "__main__":
 	if len(sys.argv) < 3:
-		print("Usage: python dump_connectwise_config.py <file_or_folder> [<output_dir>] [debug|res_override]")
+		print("Usage: python dump_evilconwi_config.py <file_or_folder> [<output_dir>] [debug|res_override]")
 		sys.exit(1)
 	input_path = sys.argv[1]
 	output_dir = input_path + "_extracted"
