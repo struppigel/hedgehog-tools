@@ -20,6 +20,7 @@ Repo of smaller scripts for malware analysis, deobfuscation and configuration ex
 | PEUnion                   | Python, Speakeasy      |   ✅   | ⛔                | ⛔            | ⛔            | ✅        | ✅                    |
 | PrivateLoader             | IDAPython (IDA 8)      |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
 | Qakbot                    | Python                 |   ✅   | ✅                | ✅            | ✅            | ⛔        | ⛔                    |
+| RokRAT                    | Python, Ghidra, Jython |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ✅                    |
 | Virut                     | Python, Ghidra, Jython |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ✅                    |
 | XWormRAT                  | Python, dnlib          |   ✅   | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
 
