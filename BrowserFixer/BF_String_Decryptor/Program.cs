@@ -12,12 +12,13 @@ using System.IO;
  * Browser Fixer string decrypter
  * probably a ConfuserEx2 string encryption variant
  * script is based on Dump_GUY's ConfuserEx2_String_Decryptor, see github.com/Dump-GUY/ConfuserEx2_String_Decryptor
- * test sample: 9d59ab9bd34c3146c086feb0605048005433d4e9aba32516c07dbd02dd48b240
+ * test sample: 9d59ab9bd34c3146c086feb0605048005433d4e9aba32516c07dbd02dd48b240 BrowserFixerSetup
+ * test sample: 6981b024f5614d6a9e9f154d4e985b728dd09dcf2c716c2219235df61ed97acc BuyBricksAiSetup
  * 
  * key characteristcs of sample's decryption function:
  *      one static non-generic string decryption function that takes an integer as input
  *      MBA in string decryption
- *      decrypt function returns 'X0X' if it detects Reflection usage
+ *      decrypt function returns 'X0X' if it detects reflection usage
  *      reflection usage detection: checks types of methods in the stackframe and checks the assembly that called the function
  * 
  * BF String Decrypter:
