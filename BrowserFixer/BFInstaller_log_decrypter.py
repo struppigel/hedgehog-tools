@@ -6,10 +6,16 @@ import sys
 # 9d59ab9bd34c3146c086feb0605048005433d4e9aba32516c07dbd02dd48b240 BrowserFixerSetup.exe 
 
 def decrypt_aes(iv, data):
-    key = b"BrowserFixerInstaller2024Key32!!"
-    cipher = AES.new(key, AES.MODE_CBC, iv)
-    plaintext = cipher.decrypt(data)
-    return unpad(plaintext, 16)
+    keys = [b"BrowserFixerInstaller2024Key32!!", b"BuyBricksAIInstaller2024Key32!!!"]
+    for key in keys:
+        try:
+            cipher = AES.new(key, AES.MODE_CBC, iv)
+            plaintext = cipher.decrypt(data)
+            return unpad(plaintext, 16)
+        except:
+            pass
+    print("Error: None of the keys worked!")
+    return None
 
 def read_entry(f):
     length_bytes = f.read(4)
