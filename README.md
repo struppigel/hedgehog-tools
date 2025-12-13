@@ -1,8 +1,24 @@
 # hedgehog-tools
  
-Repo of smaller scripts for malware analysis, deobfuscation and configuration extraction
+Repo of smaller scripts for malware analysis, deobfuscation and configuration extraction.
 
-## Overview
+See README.md files within the folders for more details.
+
+## Overview of generic tools
+
+| Folder                   | Script                                | Depends | Static | Purpose                                                                    |
+|--------------------------|---------------------------------------|---------|--------|----------------------------------------------------------------------------|
+| ECMAScript helpers       | extract_called_functions.js           | NodeJS  |   ✅   |   JavaScript deobfuscation. Recursively extracts all called functions based on a given start function | 
+| ECMAScript helpers       | rename_identifiers.js                 | NodeJS  |   ✅   |   JavaScript deobfuscation. Renames all identifiers to `ren_<number>`      | 
+| Ghidra scripts           | PropagateExternalParametersX64.java   | Java    |   ✅   |   x64 variant of Ghidra-provided 32-bit PropagateExternalParameters script |
+| Ghidra scripts           | move_callers_to_malware_namespace.py  | Jython  |   ✅   |   Moves all caller functions into `malware::` namespace                    |
+| Nuitka                   | nuitka_extractor.py                   | Python  |   ✅   |   extracts Nuitka onefile executables                                      |
+| Python helper scripts    | extract_export_symbols.py             | Python  |   ✅   |   obtain a list of symbols for all exported functions of a DLL             |
+| RenPy                    | rpa_extractor.py                      | Python  |   ✅   |   Extracts RenPy archives (`.rpa`, `.rpi`)                                 | 
+| Shellcode2PE             | shellcode_to_pe.py                    | Python  |   ✅   |   Converts raw shellcode into a PE file with shellcode as entry point      | 
+
+
+## Overview of family based deobfuscators
 
 | Target                    | Depends                | Static | Config extraction | C2 extraction | Deobfuscation | Unpacking | Handles packed sample |
 | ------------------------- | ---------------------- | ------ | ----------------- | ------------- | ------------- | --------- | --------------------- |
@@ -13,22 +29,14 @@ Repo of smaller scripts for malware analysis, deobfuscation and configuration ex
 | BrowserFixer              | .NET C#                |   ⛔   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
 | CobaltStrike              | Python, Ghidra, Jython |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
 | Dave                      | IDAPython (IDA 9)      |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
+| EvilConwi                 | Python                 |   ✅   | ✅                | ⛔            | ⛔            | ⛔        | ⛔                    |
 | GootLoader                | JavaScript, NodeJS     |   ✅   | ✅                | ✅            | ✅            | ✅        | ✅                    |
 | LimeRAT                   | Python, dnlib          |   ✅   | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
 | LummaStealer              | Ghidra, Jython         |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
 | NightHawk                 | IDAPython (IDA 8)      |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ✅                    |
-| Nuitka                    | Python                 |   ✅   | ⛔                | ⛔            | ⛔            | ⛔        | ✅                    |
 | PEUnion                   | Python, Speakeasy      |   ✅   | ⛔                | ⛔            | ⛔            | ✅        | ✅                    |
 | PrivateLoader             | IDAPython (IDA 8)      |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
 | Qakbot                    | Python                 |   ✅   | ✅                | ✅            | ✅            | ⛔        | ⛔                    |
 | RokRAT                    | Python, Ghidra, Jython |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ✅                    |
 | Virut                     | Python, Ghidra, Jython |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ✅                    |
 | XWormRAT                  | Python, dnlib          |   ✅   | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
-
-Additionally there is a folder called **ECMAScript helpers** with generic scripts for deobfuscation of JScript, JavaScript and similar.
-
-**Shellcode2PE** converts a shellcode to a Portable Executable file with the shellcode at the entry point and ASLR disabled.
-
-**Python helper scripts** contains generic helpers like export function extractors.
-
-See README.md files within the folders for more.
