@@ -61,8 +61,6 @@ def monitor(path_to_watch, dump_destination):
             elif action == FILE_DELETED:
                 print("file deleted", full_filename)
             elif action == FILE_MODIFIED:
-                
-                #try:
                 if os.path.isfile(full_filename):
                     print("file modified", full_filename)
                     print("dumping contents ...")
@@ -70,8 +68,6 @@ def monitor(path_to_watch, dump_destination):
                     print("successfully dumped", filename_dumped)
                 else:
                     print("folder modified", full_filename)
-                #except Exception as e:
-                #    print("dump failed", e)
             elif action == FILE_RENAMED_FROM:
                 print("file renamed from", full_filename)
             elif action == FILE_RENAMED_TO:
