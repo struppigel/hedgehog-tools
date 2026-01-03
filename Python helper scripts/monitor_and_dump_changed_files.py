@@ -3,6 +3,7 @@
 # code modified from https://timgolden.me.uk/python/win32_how_do_i/watch_directory_for_changes.html
 
 import os
+import sys
 import tempfile
 import threading
 import win32file
