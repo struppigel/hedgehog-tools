@@ -15,6 +15,7 @@ See README.md files within the folders for more details.
 | Nuitka                   | nuitka_extractor.py                   | Python  |   ✅   |   Extracts Nuitka onefile executables                                      |
 | Python helper scripts    | extract_export_symbols.py             | Python  |   ✅   |   Obtains a list of symbols for all exported functions of a DLL            |
 | Python helper scripts    | monitor_and_dump_changed_files.py     | Python  |   ⛔   |   Monitors changes within a given folder and dumps the changed files       |
+| PyInstaller mod          | pyinstaller-mod-extractor-ng.py       | Python  |   ✅   |   Extracts PyInstaller files that use a custom stub and custom encryption  |
 | RenPy                    | rpa_extractor.py                      | Python  |   ✅   |   Extracts RenPy archives (`.rpa`, `.rpi`)                                 | 
 | Shellcode2PE             | shellcode_to_pe.py                    | Python  |   ✅   |   Converts raw shellcode into a PE file with shellcode as entry point      | 
 
