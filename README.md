@@ -42,3 +42,11 @@ See README.md files within the folders for more details.
 | RokRAT                    | Python, Ghidra, Jython |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ✅                    |
 | Virut                     | Python, Ghidra, Jython |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ✅                    |
 | XWormRAT                  | Python, dnlib          |   ✅   | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
+
+## Licensing
+
+Unless stated otherwise, tools in this repository are licensed under
+the MIT License (see LICENSE).
+
+Some tools are derived from GPLv3 projects and therefore remain licensed
+under GPLv3+. These tools contain their own LICENSE files and headers.
