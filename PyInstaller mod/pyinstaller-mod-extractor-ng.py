@@ -15,6 +15,8 @@ Licensed under GNU General Public License (GPL) v3.
 
 This script was modified by Karsten Hahn @ GDATA CyberDefense to extract a custom PyInstaller variant.
 
+These modifications are also licensed under GPLv3+.
+
 See article: https://samplepedia.cc/sample/8c9d9150efa35278afcb23f2af4c4babcc4dd55acd9e839bed4c04cb5a8d9c3f/81/solution/52/view/
 
 Samples:
