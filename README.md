@@ -33,6 +33,7 @@ See README.md files within the folders for more details.
 | Dave                      | IDAPython (IDA 9)      |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
 | EvilConwi                 | Python                 |   ✅   | ✅                | ⛔            | ⛔            | ⛔        | ⛔                    |
 | GootLoader                | JavaScript, NodeJS     |   ✅   | ✅                | ✅            | ✅            | ✅        | ✅                    |
+| HijackLoader              | Python                 |   ✅   | ✅                | ⛔            | ✅            | ✅        | ✅                    |
 | LimeRAT                   | Python, dnlib          |   ✅   | ✅                | ✅            | ⛔            | ⛔        | ⛔                    |
 | LummaStealer              | Ghidra, Jython         |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ⛔                    |
 | NightHawk                 | IDAPython (IDA 8)      |   ✅   | ⛔                | ⛔            | ✅            | ⛔        | ✅                    |
