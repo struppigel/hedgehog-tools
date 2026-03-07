@@ -13,6 +13,7 @@ See README.md files within the folders for more details.
 | Ghidra scripts           | PropagateExternalParametersX64.java   | Java    |   ✅   |   x64 variant of Ghidra-provided 32-bit PropagateExternalParameters script |
 | Ghidra scripts           | move_callers_to_malware_namespace.py  | Jython  |   ✅   |   Moves all caller functions into `malware::` namespace                    |
 | Nuitka                   | nuitka_extractor.py                   | Python  |   ✅   |   Extracts Nuitka onefile executables                                      |
+| PKG                      | pkg_vfs_extract.py                    | Python  |   ✅   |   Extracts and inspects embedded Virtual Filesystems from `vercel/pkg` binaries |
 | Python helper scripts    | extract_export_symbols.py             | Python  |   ✅   |   Obtains a list of symbols for all exported functions of a DLL            |
 | Python helper scripts    | monitor_and_dump_changed_files.py     | Python  |   ⛔   |   Monitors changes within a given folder and dumps the changed files       |
 | PyInstaller mod          | pyinstaller-mod-extractor-ng.py       | Python  |   ✅   |   Extracts PyInstaller files that use a custom stub and custom encryption  |
