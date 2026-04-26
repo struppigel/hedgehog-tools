@@ -18,7 +18,8 @@ Usage:
 Options:
     --json              Output raw JSON instead of formatted table
     --tree              Display as directory tree
-    --extract-to DIR    Extract file contents to DIR (requires payload)
+    -e, --extract DIR   Extract file contents to DIR (requires payload)
+    -b, --bytecode      With --extract: also dump V8 bytecode (.v8bytecode)
     --filter PATTERN    Only show entries matching glob pattern
     --stats             Show summary statistics only
     --interesting       Show files likely to be analyst-relevant
@@ -345,7 +346,8 @@ def print_tree(tree: dict, prefix: str = "", is_last: bool = True, depth: int = 
 
 def extract_files(data: bytes, vfs: dict, rev_dict: dict,
                   payload_pos: int, compress: int, output_dir: str,
-                  filter_pattern: str | None = None):
+                  filter_pattern: str | None = None,
+                  include_bytecode: bool = False):
     """Extract file contents from the payload to disk."""
     try:
         import brotli as brotli_mod
@@ -374,39 +376,52 @@ def extract_files(data: bytes, vfs: dict, rev_dict: dict,
             os.makedirs(dir_path, exist_ok=True)
             continue
 
-        if STORE_CONTENT not in stores:
+        # Decide what to dump:
+        #   CONTENT present → write source as-is
+        #   BLOB only       → write V8 bytecode to <path>.v8bytecode
+        #     pkg strips the entrypoint's source by default, leaving only
+        #     the V8 cached_data blob; without this branch it's silently
+        #     skipped and the analyst loses the entrypoint entirely.
+        #   include_bytecode → also dump the BLOB next to the source
+        targets = []
+        if STORE_CONTENT in stores:
+            targets.append((stores[STORE_CONTENT], rel))
+            if include_bytecode and STORE_BLOB in stores:
+                targets.append((stores[STORE_BLOB], rel + ".v8bytecode"))
+        elif STORE_BLOB in stores:
+            targets.append((stores[STORE_BLOB], rel + ".v8bytecode"))
+        else:
             skipped += 1
             continue
 
-        offset, size = stores[STORE_CONTENT]
-        abs_offset = payload_pos + offset
+        for (offset, size), out_rel in targets:
+            abs_offset = payload_pos + offset
+            if abs_offset + size > len(data):
+                print(f"  [!] Out of bounds: {decoded} (offset={abs_offset}, size={size})",
+                      file=sys.stderr)
+                skipped += 1
+                continue
 
-        if abs_offset + size > len(data):
-            print(f"  [!] Out of bounds: {decoded} (offset={abs_offset}, size={size})",
-                  file=sys.stderr)
-            skipped += 1
-            continue
+            content = data[abs_offset : abs_offset + size]
 
-        content = data[abs_offset : abs_offset + size]
+            # Decompress if needed (applies to both CONTENT and BLOB stores)
+            if compress == 1:
+                try:
+                    content = zlib.decompress(content, 16 + zlib.MAX_WBITS)
+                except zlib.error:
+                    pass  # may not be compressed
+            elif compress == 2 and has_brotli:
+                try:
+                    content = brotli_mod.decompress(content)
+                except Exception:
+                    pass
 
-        # Decompress if needed
-        if compress == 1:
-            try:
-                content = zlib.decompress(content, 16 + zlib.MAX_WBITS)
-            except zlib.error:
-                pass  # may not be compressed
-        elif compress == 2 and has_brotli:
-            try:
-                content = brotli_mod.decompress(content)
-            except Exception:
-                pass
+            out_path = os.path.join(output_dir, out_rel.replace("/", os.sep))
+            os.makedirs(os.path.dirname(out_path), exist_ok=True)
 
-        out_path = os.path.join(output_dir, rel.replace("/", os.sep))
-        os.makedirs(os.path.dirname(out_path), exist_ok=True)
-
-        with open(out_path, "wb") as fout:
-            fout.write(content)
-        extracted += 1
+            with open(out_path, "wb") as fout:
+                fout.write(content)
+            extracted += 1
 
     print(f"\nExtracted {extracted} files, skipped {skipped}")
 
@@ -689,7 +704,8 @@ def main():
                         help="Display as directory tree")
     parser.add_argument("--tree-depth", type=int, default=-1,
                         help="Max tree depth (-1 = unlimited)")
-    parser.add_argument("--extract-to", metavar="DIR",
+    parser.add_argument("-e", "--extract", "--extract-to", dest="extract",
+                        metavar="DIR",
                         help="Extract file contents to directory")
     parser.add_argument("--filter", metavar="PATTERN",
                         help="Filter entries by glob pattern (e.g. '*/axios/*')")
@@ -701,6 +717,11 @@ def main():
                         help="Show analyst-relevant files (entrypoints, "
                              "root files, native addons, recoverable JS, "
                              "size outliers)")
+    parser.add_argument("-b", "--bytecode", action="store_true",
+                        help="With --extract: also dump V8 bytecode "
+                             "(.v8bytecode) for files that have both source "
+                             "and bytecode. Bytecode-only entries are always "
+                             "dumped regardless of this flag.")
 
     args = parser.parse_args()
 
@@ -814,7 +835,7 @@ def main():
         tree = build_tree(entries)
         print_tree(tree, max_depth=args.tree_depth)
 
-    elif args.extract_to:
+    elif args.extract:
         if payload_pos is None:
             print("[!] PAYLOAD_POSITION not found in bootstrap (unpatched).",
                   file=sys.stderr)
@@ -823,8 +844,8 @@ def main():
             print("    Try: --stats or --tree for metadata-only analysis.",
                   file=sys.stderr)
             sys.exit(1)
-        extract_files(data, vfs, rev_dict, payload_pos, compress, args.extract_to,
-                      args.filter)
+        extract_files(data, vfs, rev_dict, payload_pos, compress, args.extract,
+                      args.filter, include_bytecode=args.bytecode)
 
     else:
         # Default: table view
