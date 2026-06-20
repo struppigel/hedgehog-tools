@@ -12,6 +12,7 @@ See README.md files within the folders for more details.
 | ECMAScript helpers        | rename_identifiers.js                 | NodeJS  |   ✅   |   JavaScript deobfuscation. Renames all identifiers to `ren_<number>`      | 
 | Ghidra scripts            | PropagateExternalParametersX64.java   | Java    |   ✅   |   x64 variant of Ghidra-provided 32-bit PropagateExternalParameters script |
 | Ghidra scripts            | move_callers_to_malware_namespace.py  | Jython  |   ✅   |   Moves all caller functions into `malware::` namespace                    |
+| ktrace                    | ktrace/ktrace.py                      | Python  |   ✅   |   kernel mode driver emulator and tracer                                   |
 | Nuitka                    | nuitka_extractor.py                   | Python  |   ✅   |   Extracts Nuitka onefile executables                                      |
 | PKG                       | pkg_vfs_extract.py                    | Python  |   ✅   |   Extracts and inspects embedded Virtual Filesystems from `vercel/pkg` binaries |
 | Python helper scripts     | extract_export_symbols.py             | Python  |   ✅   |   Obtains a list of symbols for all exported functions of a DLL            |
