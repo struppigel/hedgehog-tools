@@ -37,11 +37,12 @@ python pkg_vfs_extract.py <binary> [options]
 - `--json`: print decoded VFS metadata as JSON.
 - `--tree`: print a directory tree view.
 - `--tree-depth N`: max depth for tree view (`-1` = unlimited).
-- `--extract-to DIR`: extract file content payload to `DIR`.
+- `--extract DIR`: extract file content payload to `DIR`.
 - `--filter PATTERN`: glob filter for entries (example: `*/axios/*`).
 - `--stats`: print summary statistics only.
 - `--packages`: print only detected npm package names.
 - `--interesting`: print analyst-oriented file shortlist.
+- `--bytecode`: extract will also dump all v8 bytecode.
 
 ## Examples
 
@@ -75,16 +76,16 @@ Show tree view with depth limit:
 python pkg_vfs_extract.py sample.exe --tree --tree-depth 3
 ```
 
-Extract files to disk:
+Extract files to disk including all v8 bytecode:
 
 ```bash
-python pkg_vfs_extract.py sample.exe --extract-to ./out_vfs
+python pkg_vfs_extract.py sample.exe --extract ./out_vfs --bytecode
 ```
 
 Extract only matching files:
 
 ```bash
-python pkg_vfs_extract.py sample.exe --extract-to ./out_vfs --filter "*/node_modules/axios/*"
+python pkg_vfs_extract.py sample.exe --extract ./out_vfs --filter "*/node_modules/axios/*"
 ```
 
 Show interesting files:
@@ -122,7 +123,7 @@ Prints:
 
 ## How Extraction Works
 
-When extracting payload content (`--extract-to`), the tool resolves payload start using:
+When extracting payload content (`--extract`), the tool resolves payload start using:
 1. `PAYLOAD_POSITION` from bootstrap code (if patched into the binary)
 2. PE overlay fallback (section-header based), when available
 
